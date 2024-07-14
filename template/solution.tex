@@ -1,0 +1,42 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Ordenamiento.
+
+Se puede almacenar a cada persona en un arreglo o vector, guardando la información
+como un par número-cadena (como en un pair\textless int, string\textgreater \, en C++
+o una túpla o lista en Python). Al ordenar tal arreglo, la mayoría de los lenguajes
+ordena por el primer elemento y luego por el segundo. Por lo tanto, es suficiente
+ordenar tal arreglo y mostrar los nombres en tal orden.
+
+La complejidad por caso de prueba es~$O(n\log n)$, dejando una complejidad total
+de~$O(tn \log n)$.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int te;
+  cin >> te;
+  while (te--) {
+    int n;
+    cin >> n;
+    vector<pair<int, string>> a(n);
+    for(auto &[x, y]: a) cin >> x >> y;
+    sort(a.begin(), a.end());
+    for(auto [x, gg]: a)
+      cout << gg << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
