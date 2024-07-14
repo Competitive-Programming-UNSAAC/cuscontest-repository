@@ -1,0 +1,106 @@
+\begin{problem}{Encuentro Estudiantil Optimizado}{Entrada estándar}{Salida estándar}{1 segundo}{}{Rafa Diaz}
+
+El ACM Chapter Cusco está planeando un Encuentro Estudiantil Nacional el siguiente año. Bien se sabe que un factor importante para llevar a cabo este gran evento es que haya suficientes recursos. Bien se sabe, también, que eres quien sabe más algoritmos de optimización. ¡El Encuentro Estudiantil Nacional te necesita!
+\\\\
+La tarea que te han asignado es que encuentres la ciudad sede que minimice el costo de transporte de estudiantes que han confirmado su asistencia.
+\\\\
+Afortunadamente te han dado la siguiente información:
+\begin{itemize}
+    \item Cantidad de estudiantes que han confirmado su asistencia de cada ciudad.
+    \item El costo individual de un boleto de autobús para ir de una ciudad a otra.
+\end{itemize}
+
+
+\InputFile
+\begin{itemize}
+    \item Un entero, $N$, indicando el número de ciudades.
+
+\item $N$ renglones. Cada renglón seguirá el formato $C E$ donde:
+\begin{itemize}
+  \item  $C$ representa el nombre de la ciudad (una sola palabra)
+  \item  $E$ representa la cantidad de estudiantes confirmados en esa ciudad
+  \end{itemize}
+\item Un entero, $M$, indicando el número de boletos del que tienes información
+\item $M$ renglones. Cada renglón seguirá el formato $C_1 C_2 X$ donde:
+\begin{itemize}
+    
+
+  \item  $C_1$ y $C_2$ representan las ciudades origen y destino
+  \item  $X$ representa el costo en Soles de un boleto individual, ya sea de ida o de regreso
+\end{itemize}
+\end{itemize}
+\textbf{Notas}
+\begin{itemize}
+\item  $1 \le N \le 20$
+\item  $1 \le E_i, X_i \le 100$
+\item  Se garantiza que se puede ir de cualquier ciudad a cualquier ciudad
+\item  Se garantiza que no hay un par de ciudades con dos costos de un boleto individual
+\end{itemize}
+\OutputFile
+
+La ciudad que minimiza el costo de transporte de los estudiantes confirmados. En dado caso de empate elige por orden alfabético (e.g. \emph{Cusco} le ganaría a \emph{Puna}).
+
+
+\Example
+
+\begin{example}
+\exmp{%%INPUT
+3
+Cusco 10
+zArequipa 10
+Lima 10
+3
+zArequipa Cusco 20
+Cusco Lima 20
+zArequipa Lima 20
+
+}{ %%OUTPUT
+Cusco
+} %%END-OUTPUT
+
+\exmp{%%INPUT
+3
+Cusco 11
+Arequipa 10
+Lima 10
+3
+Arequipa Cusco 20
+Cusco Lima 20
+Arequipa Lima 20
+
+}{ %%OUTPUT
+Cusco
+} %%END-OUTPUT
+\exmp{%%INPUT
+3
+Cusco 10
+Arequipa 10
+Lima 10
+3
+Arequipa Cusco 20
+Cusco Lima 20
+Arequipa Lima 21
+
+
+}{ %%OUTPUT
+Cusco
+} %%END-OUTPUT
+\end{example}
+
+
+
+
+Ejmplo 1: El estimado de transporte de las 3 ciudades es el mismo: 400 Soles. Por lo tanto la ciudad elegida por orden alfabético es \emph{Cusco}.
+
+Ejemplo 2:  Organizar el evento en \emph{Cusco} costaría 400 Soles, mientras que en \emph{Arequipa} o \emph{Lima} sería de 420 Soles
+
+
+Ejemplo 3: Organizar el evento en \emph{Cusco} costaría 400 Soles, mientras que en \emph{Arequipa} o \emph{Lima} sería de 410 Soles
+
+
+\end{problem}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

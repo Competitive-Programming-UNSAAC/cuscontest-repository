@@ -1,0 +1,199 @@
+\documentclass[11pt,a4paper,oneside]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{olymp}
+\usepackage{bnf}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\newtheorem*{proposition*}{Proposición}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codepurple}\ttfamily,
+  morecomment=[l][\color{magenta}]{\#},
+  keywordstyle=\color{blue}\ttfamily,
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{red}\ttfamily,
+  basicstyle=\ttfamily,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{style=mystyle}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{afterpage}
+\usepackage{float}
+\usepackage[ruled, vlined]{algorithm2e}
+
+\date{Cusco, 29 de Diciembre del 2023}
+
+\renewcommand{\contestname}{
+    CusContest XX\\
+    Cusco, 29 de Diciembre del 2023
+}
+
+\begin{document}
+
+% Provide problems and editorial?
+\providetoggle{solution}
+% \settoggle{solution}{true}
+\settoggle{solution}{false}
+
+\clearpage\thispagestyle{empty}
+
+\begin{figure}
+\centering
+\begin{minipage}{.32\textwidth}%
+    \centering
+    \includegraphics[height=.40\linewidth]{images/logo_hola_google.png}
+\end{minipage}%
+\begin{minipage}{.32\textwidth}%
+    \centering
+    \includegraphics[height=.53\linewidth]{images/logo_acm.png}
+\end{minipage}%
+\begin{minipage}{.32\textwidth}%
+    \centering
+    \includegraphics[height=.22\linewidth]{images/logo_omegaup.png}
+\end{minipage}%
+\end{figure}
+
+\begin{center}
+    \large
+    UNIVERSIDAD NACIONAL DE SAN ANTONIO ABAD DEL CUSCO\\
+    \vspace{0.3cm}
+    FACULTAD DE INGENIERÍA ELÉCTRICA, ELECTRÓNICA, INFORMÁTICA Y MECÁNICA\\
+    \vspace{0.3cm}
+    ESCUELA PROFESIONAL DE INGENIERÍA INFORMÁTICA Y DE SISTEMAS\\
+    \vspace{2cm}
+    ACM CHAPTER CUSCO\\
+    \vspace{2cm}
+    \Large
+    CONCURSO DE PROGRAMACIÓN\\
+    \vspace{0.5cm}
+    \Huge{\textbf{CUSCONTEST XX}\\
+    \Large
+    \vspace{0.5cm}
+    \iftoggle{solution}{\textit{PROBLEMSET CON SOLUCIONES}}{\textit{PROBL3MSET}}
+    \\
+    \vspace{3cm}
+    \large
+    Cusco, 29 de Diciembre del 2023\\
+    \vspace{3cm}
+    Este problemset contiene 13 problemas etiquetados de la `A' a la `M'.
+\end{center}
+
+\newpage
+
+\clearpage\thispagestyle{empty}
+{\Large \textbf{Información General}}
+
+A menos que se indique lo contrario, las siguientes condiciones son válidas para todos los problemas.
+
+
+\textbf{Nombre del programa}
+\begin{enumerate}
+    \item La solución debe ser enviada en formatos del lenguaje seleccionado. Ejm: codigo.c, codigo.cpp, codigo.java, codigo.py, codigo.cs.
+\end{enumerate}
+
+\textbf{Entrada}
+\begin{enumerate}
+    \item La entrada debe ser leída desde la entrada estándar (consola).
+    \item La entrada consiste en un único caso de prueba, que es descrito en el formato de cada problema. No existen datos extras en la entrada.
+    \item Cuando una línea de datos contiene muchos valores, estos son separados por exactamente un espacio entre ellos. No existen otros espacios en las entradas.
+    \item Se utiliza el alfabeto Inglés. No hay letras con tildes, diéresis, eñes, u otros símbolos.
+\end{enumerate}
+
+\textbf{Salida}
+\begin{enumerate}
+    \item La salida debe ser escrita como salida estándar (consola).
+    \item El resultado debe ser escrito en la cantidad de líneas especificada para cada problema. No debe imprimirse otros datos. Ejm: no incluir: ``ingrese el número''.
+    \item Cuando una línea de datos de salida contiene muchos valores, estos deben ser separados por exactamente un espacio entre ellos. No deben imprimirse otros espacios en las salidas.
+    \item Debe ser utilizado el alfabeto Inglés. No letras con tildes, diéresis, eñes, u otros símbolos.
+\end{enumerate}
+
+\textbf{Límite de Tiempo}
+\begin{enumerate}
+    \item El límite de tiempo informado para cada problema corresponde con el tiempo total permitido para la ejecución completa de los casos de prueba.
+\end{enumerate}
+
+\textbf{Consejos}
+\begin{enumerate}
+    \item Para leer múltiples números en una línea en Python usa: A = [int(x) for x in input().split(' ')]
+    \item Para soluciones en java, enviar el archivo .java sin el ``package name''.
+    \item Para compilar cn c++ y si el archivo se llama code.cpp usar el comando g++ code.cpp -o code y para ejecutar usar el comando ./code
+\end{enumerate}
+
+\begin{center}
+
+\vspace{1cm}
+
+Problemas coordinados por Justino Ferro Alvarez, y planteados por:
+
+\vspace{0.3cm}
+
+\begin{tabular}{ l l }
+\multicolumn{1}{c}{\textbf{Autor}} & \multicolumn{1}{c}{\textbf{Afiliación}} \\
+Ulises Mendez& Software Engineer, Google, USA \\
+Erick Alvarez& Software Engineer, Google, USA \\
+Rafa Diaz& Canada \& LATAM Community Advisor, Google, CA \\
+Grover Castro & PhD in Computer Sc., Universität Leipzig, DE\\
+Kleiber Ttito& Software Engineer, Amazon, USA \\
+Jared León & PhD Stud. in Maths, University of Warwick, UK\\
+John Vargas & Senior Data Scientist, Topaz, USA\\
+Josué Nina & Data integration and ETL developer, Provista, USA\\
+Justino Ferro & Software Developer, PE\\
+\end{tabular}
+
+\end{center}
+
+% Problems come here aquí
+\newpage
+
+\input{content/A/A.tex}
+\iftoggle{solution}{\input{content/A/A-solution.tex}}{}%
+\input{content/B/B.tex}
+\iftoggle{solution}{\input{content/B/B-solution.tex}}{}%
+\input{content/C/C.tex}
+\iftoggle{solution}{\input{content/C/C-solution.tex}}{}%
+\input{content/D/D.tex}
+\iftoggle{solution}{\input{content/D/D-solution.tex}}{}%
+\input{content/E/E.tex}
+\iftoggle{solution}{\input{content/E/E-solution.tex}}{}%
+\input{content/F/F.tex}
+\iftoggle{solution}{\input{content/F/F-solution.tex}}{}%
+\input{content/G/G.tex}
+\iftoggle{solution}{\input{content/G/G-solution.tex}}{}%
+\input{content/H/H.tex}
+\iftoggle{solution}{\input{content/H/H-solution.tex}}{}%
+\input{content/I/I.tex}
+\iftoggle{solution}{\input{content/I/I-solution.tex}}{}%
+\input{content/J/J.tex}
+\iftoggle{solution}{\input{content/J/J-solution.tex}}{}%
+\input{content/K/K.tex}
+\iftoggle{solution}{\input{content/K/K-solution.tex}}{}%
+\input{content/L/L.tex}
+\iftoggle{solution}{\input{content/L/L-solution.tex}}{}%
+\input{content/M/M.tex}
+\iftoggle{solution}{\input{content/M/M-solution.tex}}{}%
+\input{content/N/N.tex}
+\iftoggle{solution}{\input{content/N/N-solution.tex}}{}%
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

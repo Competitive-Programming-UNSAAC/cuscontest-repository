@@ -1,0 +1,52 @@
+\begin{problem}{Cordilleras}{Entrada estándar}{Salida estándar}{1 segundo}{}{Ulises Mendez Martinez}
+
+\textbf{Antonio} es un entusiasta de las montañas. En su reciente visita a Cuzco y Machu Picchu quedó maravillado por las imponentes vistas que ofrecía la cordillera, así que decidió calcular la altura de las montañas visibles desde cada sitio y guardar dichas mediciones en dos listas (una para cada lugar visitado). En Machu Picchu además, calculó por cada montaña la cantidad de montañas de la primer lista (de Cuzco) cuya altura era estrictamente menor a ella, y formó con esto una tercera lista.
+
+\\ \\
+
+Ya en casa \textbf{Antonio} se dió cuenta de que solo había regresado con la primer y tercer lista, por lo tanto te ha pedido ayuda para reconstruir la segunda lista. \textbf{Antonio} sabe que ninguna montaña medía más de $6385$ metros y que escribió todas las alturas en metros exactos (enteros).
+
+
+\InputFile
+
+La primer línea de entrada contiene dos enteros separados por un espacio $N, M$ $(1 \le N, M \le 1000)$ que indican la cantidad de montañas en Cuzco y Machu Picchu respectivamente.
+La segunda línea contiene $N$ enteros separados por espacios, correspondientes a las alturas $H_i$ $1 \le H_i \le 6385$ de las montañas en el primer sitio.
+La tercer y última línea contiene $M$ enteros separados por espacios. En dónde $m_i$ ( $1 \le i \le N$) indica la cantidad de montañas en la primer lista cuya altura es menor a la montaña $i$.
+
+\OutputFile
+
+Una línea con $M$ enteros separados por espacios, que corresponden a la reconstrucción de la segunda lista.
+
+\textbf{Nota1}: En caso de múltiples soluciones, elija aquellas con las mayores alturas.
+
+
+\textbf{Nota2}: Se garantiza que cada caso tiene al menos una solución.
+
+
+\Example
+
+\begin{example}
+\exmp{%%INPUT
+1 1
+4444
+0
+}{ %%OUTPUT
+4443
+} %%END-OUTPUT
+\exmp{%%INPUT
+1 1
+4444
+1
+}{ %%OUTPUT
+6385
+} %%END-OUTPUT
+\end{example}
+
+
+
+\end{problem}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

@@ -1,0 +1,38 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Teoría de grafos básica y combinatoria.
+
+Dado que Lucho siempre puede comunicarse con todas las otras personas, es fácil ver
+que se tiene un grafo conexo. Por lo que cada par de vértices puede conectarse entre
+sí. Existen~${n \choose 2} = n(n - 1) / 2$ pares de vértices, siendo ésta la
+respuesta siempre.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int te;
+  cin >> te;
+  while (te--) {
+    int n, m;
+    cin >> n >> m;
+    while (m--) {
+      int a, b;
+      cin >> a >> b;
+    }
+    cout << (n - 1) * (n - 2) / 2 << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

@@ -1,0 +1,126 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Caminos mínimos en grafos sin peso (BFS) y álgebra
+lineal básica.
+
+Por conveniencia, llamaremos a las configuraciones estables simplemente
+configuraciones. La siguiente observación es de utilidad para resolver este problema.
+
+\begin{proposition*}
+  Dos configuraciones son diferentes si y solo si las suma de los radiovectores de
+  los escarabajos en ambas configuraciones son diferentes.
+\end{proposition*}
+\begin{proof}
+Para la condición necesaria, probaremos que una configuración determina únicamente
+la suma de los radiovectores de las posiciones. Sea~$(x, y)$ la posición del
+escarabajo central en una configuración y las posiciones de los otros
+escarabajos~$(x + \Delta x, y)$ y~$(x, y + \Delta y)$. La suma de los radiovectores
+de estas posiciones es~$(3x + \Delta x, 3y + \Delta y)$.
+
+Para la condición suficiente, sea~$v$ la suma de los radiovectores de alguna
+configuración. No es difícil ver que la posición del escarabajo central es
+siempre~$\text{round}(v / 3)$ (donde el redondeo se aplica independientemente a ambas
+coordenadas del vector). Teniendo la posición de este escarabajo, es fácil calcular
+las posiciones de los demás escarabajos (por ejemplo, si esta posición es~$(x, y)$ y
+si la coordenada en~$x$ de~$v$ es~$3x - 1$ entonces hay un escarabajo a la izquierda,
+si es~$3x + 1$ hay un escarabajo a la derecha). Por lo tanto, la configuración se
+determina únicamente.
+\end{proof}
+
+Entonces, el problema se puede replantear como: pasar de la posición~$(1, 1)$ a la
+posición~$(x_1 + x_2 + x_3, y_1 + y_2 + y_3)$ saltando de posición en posición de
+acuerdo a las reglas de movimiento en el mínimo número de movimientos.
+
+Es posible tratar las posiciones del nuevo problema como vértices de un grafo, donde
+el número de vecinos de un vértice es una constante (¿cuál?). El número de vértices y
+aristas de este grafo es~$O(\max x_i \max y_i)$ Los límites del problema hacen posible usar el
+algoritmo BFS (búsqueda en anchura) en este grafo para encontrar la longitud de un
+camino más corto de la posición inicial a la posición final.
+
+La complejidad por caso de prueba es~$O(\max x_i \max y_i)$, dejando una complejidad
+total de~$O(t \max x_i \max y_i)$.
+
+Es posible realizar una solución~$O(1)$ por caso de prueba observando un patrón para
+posiciones pequeñas y probando que tal patrón se mantiene por inducción.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<pair<int, int>> adyacentes(int x, int y){
+  vector<pair<int, int>> gg;
+  int cx = round(x / 3.0), cy = round(y / 3.0);
+  int ax = cx + 1, ay = cy;
+  if(x == 3 * cx - 1) ax = cx - 1;
+  int bx = cx, by = cy + 1;
+  if(y == 3 * cy - 1) by = cy - 1;
+  // Mover el centro hacia la otra ubic.
+  int mx = ax != cx ? ax:bx, my = ay != cy ? ay:by;
+  gg.push_back({mx + ax + bx, my + ay + by});
+  // Mover a hacia la ubic. 1/3
+  mx = ax == cx - 1 ? (cx + 1):(cx - 1);
+  my = ay;
+  gg.push_back({mx + cx + bx, my + cy + by});
+  // Mover a hacia la ubic. 2/3
+  my = by;
+  gg.push_back({mx + cx + bx, my + cy + by});
+  // Mover a hacia la ubic. 3/3
+  mx = ax;
+  gg.push_back({mx + cx + bx, my + cy + by});
+  // Mover b hacia la ubic. 1/3
+  mx = bx;
+  my = by == cy - 1 ? (cy + 1):(cy - 1);
+  gg.push_back({mx + ax + cx, my + ay + cy});
+  // Mover b hacia la ubic. 2/3
+  mx = ax;
+  gg.push_back({mx + ax + cx, my + ay + cy});
+  // Mover b hacia la ubic. 3/3
+  my = by;
+  gg.push_back({mx + ax + cx, my + ay + cy});
+  return gg;
+}
+
+int main(){
+  int te; cin >> te;
+  while (te--) {
+    int x1, y1, x2, y2, x3, y3;
+    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+    int x = x1 + x2 + x3, y = y = y1 + y2 + y3;
+
+    // BFS
+    queue<pair<int, int>> q;
+    q.push({1, 1});
+    map<pair<int, int>, int> d;
+    d[{1, 1}] = 0;
+    while (q.size() > 0) {
+      pair<int, int> p = q.front(); q.pop();
+      int vx = p.first, vy = p.second;
+      int dist = d[p];
+      for (auto [ux, uy]: adyacentes(vx, vy)) {
+        if(d.find({ux, uy}) == d.end() || dist + 1 < d[{ux, uy}]){
+          d[{ux, uy}] = dist + 1;
+          q.push({ux, uy});
+        }
+        // Objetivo localizado
+        if(ux == x && uy == y){
+          queue<pair<int, int>> empty;
+          swap(q, empty);
+          break;
+        }
+      }
+    }
+    cout << d[{x, y}] << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

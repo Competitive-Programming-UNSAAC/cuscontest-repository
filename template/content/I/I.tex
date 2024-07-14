@@ -1,0 +1,51 @@
+\begin{problem}{Escape de Sobibor}{Entrada estándar}{Salida estándar}{1 segundo}{}{Jared León}
+
+Los Nazis han invadido Polonia y la operación Reinhard está en marcha! Bajo la orden de Himmler, el comandante de la SS, se establecieron cuatro campos de exterminio en el país. Uno de ellos es Sobibor, un campo que retiene pocos cientos de prisioneros vivos de los cientos de miles que pasan por ahí. Sin embargo, hay una pequeña esperanza! Un grupo de prisioneros rebeldes están trabajando en un plan de escape para liberar a todos los prisioneros del lugar.
+
+Los $n$ prisioneros que son parte del plan de escape se encuentran en barracas distintas posicionadas en una línea horizontal en las posiciones $p_1, p_2, \dots, p_n$, (siendo todas distintas). Debido a que un miembro de la SS recorre el complejo cada poco tiempo, el problema actual consiste en encontrar una única localización, dada por una posición $r$ (no necesariamente en una de las barracas) de tal forma que los $n$ prisioneros caminen la mínima distancia total hasta llegar a $r$. Esto da las mejores oportunidades de no ser vistos en el camino. Ayúdales a resolver este problema!
+
+Formalmente, deberás encontrar un entero $r$ tal que la cantidad $|p_1 - r| + |p_2 - r| + ... + |p_n - r|$ sea mínima. Es posible demostrar que existe exactamente un valor que cumple esta condición.
+\InputFile
+
+La entrada comienza con un entero $k \leq 10$, indicando el número de casos de prueba. Cada caso de prueba comienza con un entero impar $n$ $(3 \leq n \leq 10^4)$, indicando el número de prisioneros. Cada una de las siguientes $n$ líneas contiene un entero $p_i$ $(0 \leq p_i \leq 10^6)$, indicando la posición del prisionero $i$.
+
+Se garantiza que todos los prisioneros están en posiciones distintas
+
+
+\OutputFile
+
+Para cada caso de prueba imprime un único entero $r$.
+\Example
+
+\begin{example}
+\exmp{%%INPUT
+3
+3
+1
+5
+3
+3
+6
+5
+2
+5
+4
+1
+8
+7
+6
+
+}{ %%OUTPUT
+3
+5
+6
+
+} %%END-OUTPUT
+\end{example}
+
+\end{problem}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

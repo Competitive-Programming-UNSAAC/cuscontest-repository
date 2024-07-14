@@ -1,0 +1,93 @@
+\begin{problem}{Súper Equipo}{Entrada estándar}{Salida estándar}{1 segundo}{}{Rafa Diaz}
+
+Estás de muy buen ánimo al ver que el ACM Chapter Cusco de la Universidad Nacional San Antonio Abad del Cusco crece y crece y que cada vez más y más estudiantes se interesan por temas avanzados de computación.
+\\\\
+En particular te da alegría ver que cada tema avanzado tiene más de 1 estudiante con amplia experiencia, lo que hará más fácil hacer equipos para el siguiente concurso universitario internacional, el ICPC. Esta observación te ha metido en la cabeza una pregunta que no te deja dormir: ¿cuántas formas posibles hay de elegir los $N$ súper equipos que asistirán al concurso regional?
+\\\\
+Un súper equipo es un equipo de 3 estudiantes en el que cada quién es experto en uno de los 3 temas que el club considera clave: \emph{programación dinámica}, \emph{grafos} y \emph{matemáticas}.
+\\\\
+¡Esta noche has decidido desvelarte para crear un programa que calcule la respuesta!
+\\\\
+Dado el número de estudiantes con amplia experiencia en cada tema encuentra la cantidad de formas en las que se pueden elegir los $N$ súper equipos.
+
+\textbf{Notas:}
+\begin{itemize}
+    \item Nadie es experto en más de un tema.
+    \item No hay jerarquía entre los equipos seleccionados.
+\end{itemize}
+
+
+
+\InputFile
+
+En líneas separadas:
+\begin{itemize}
+    \item Un entero, $N$, indicando la cantidad de equipos que se buscan formar.
+    \item Un entero, $X$, indicando la cantidad de estudiantes que tienen amplia experiencia en \emph{programación dinámica}
+    \item Un entero, $Y$, indicando la cantidad de estudiantes que tienen amplia experiencia en \emph{grafos}
+    \item Un entero, $Z$, indicando la cantidad de estudiantes que tienen amplia experiencia en \emph{matemáticas}.
+\end{itemize}
+
+\textbf{Notas:}
+\begin{itemize}
+    \item $1 \le N \le X, Y, Z \le 10$
+\end{itemize}
+
+\OutputFile
+
+La cantidad de formas distintas en las que se pueden elegir $N$ súper equipos
+\Example
+
+\begin{example}
+\exmp{%%INPUT
+1
+1
+2
+2
+
+}{ %%OUTPUT
+4
+} %%END-OUTPUT
+\exmp{%%INPUT
+2
+2
+2
+3
+
+
+}{ %%OUTPUT
+12
+} %%END-OUTPUT
+\end{example}
+
+
+
+Ejemplo 1:
+Llamemos a quien sabe \emph{programación dinámica} $x_1$, a quienes sabe \emph{grafos} $y_1$ y $y_2$, y a quienes saben \emph{matemáticas}: $z_1$ y $z_2$. Si sólo se manda un súper equipo las posibles opciones son: \begin{itemize}
+    \item \{$x_1, y_1, z_1$\}
+    \item \{$x_1, y_1, z_2$\}
+    \item \{$x_1, y_2, z_2$\}
+\end{itemize}  
+\\
+
+Ejemplpo 2:
+Usando la misma nomenclatura del caso anterior, las 12 formas distintas de mandar 2 equipos son:
+\begin{itemize}
+\item  \{$x_1, y_1, z_1$\} y \{$x_2, y_2, z_2$\}
+\item  \{$x_1, y_1, z_2$\} y \{$x_2, y_2, z_3$\}
+\item  \{$x_1, y_1, z_3$\} y \{$x_2, y_2, z_1$\}
+\item  \{$x_1, y_2, z_1$\} y \{$x_2, y_1, z_2$\}
+\item  \{$x_1, y_2, z_2$\} y \{$x_2, y_1, z_3$\}
+\item  \{$x_1, y_2, z_3$\} y \{$x_2, y_1, z_1$\}
+\item  \{$x_1, y_1, z_1$\} y \{$x_2, y_2, z_3$\}
+\item  \{$x_1, y_1, z_2$\} y \{$x_2, y_2, z_1$\}
+\item  \{$x_1, y_1, z_3$\} y \{$x_2, y_2, z_2$\}
+\item  \{$x_1, y_2, z_1$\} y \{$x_2, y_1, z_3$\}
+\item  \{$x_1, y_2, z_2$\} y \{$x_2, y_1, z_1$\}
+\item  \{$x_1, y_2, z_3$\} y \{$x_2, y_1, z_2$\}
+\end{itemize}
+\end{problem}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

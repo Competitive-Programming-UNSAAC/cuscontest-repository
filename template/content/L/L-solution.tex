@@ -1,0 +1,42 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Imprimir en consola.
+
+Obviamente la cantidad de dogcoins que necesita Chusky para el país~$i$
+es~$d_i / c_i$, lo cual está garantizado de ser entero. La cantidad total necesaria
+es la suma de esta expresión para todo~$i$.
+
+La complejidad por caso de prueba es~$O(n)$, dejando una complejidad total
+de~$O(t n)$.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int te;
+  cin >> te;
+  while (te--) {
+    int n;
+    cin >> n;
+    int gg = 0;
+    while (n--) {
+      int ci, di;
+      cin >> ci >> di;
+      gg += di / ci;
+    }
+    cout << gg << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

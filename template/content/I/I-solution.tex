@@ -1,0 +1,45 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Principio de inclusión-exclusión.
+
+Existen~$\lfloor (n - 1) / x \rfloor$ múltiplos de~$x$
+y~$\lfloor (n - 1) / y \rfloor$ múltiplos de~$y$ menores a~$n$. Si se suman estas
+cantidades se cuentan los múltiplos de~$x$ e~$y$ dos veces, por lo que es necesario
+restar esta cantidad. Ya que~$x$ e~$y$ son números primos, el mínimo común múltiplo
+de estos es~$xy$, por lo que existen~$\lfloor (n - 1) / (xy) \rfloor$ múltiplos
+de~$xy$ menores que~$n$.
+
+La respuesta
+es~$\lfloor (n - 1) / x \rfloor + \lfloor (n - 1) / y \rfloor - \lfloor (n - 1) /
+(xy) \rfloor$.
+
+La complejidad por caso de prueba es~$O(1)$, dejando una complejidad total de~$O(t)$.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+
+int main(){
+  int te;
+  cin >> te;
+  while (te--) {
+    ll n, x, y;
+    cin >> n >> x >> y;
+    n--;
+    ll gg = n / x + n / y - n / (x * y);
+    cout << gg << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

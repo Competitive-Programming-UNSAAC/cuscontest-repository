@@ -1,0 +1,187 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Caminos mínimos en grafos con peso (Dijkstra),
+prefijos y sufijos.
+
+Aunque aparentemente la cantidad de cadenas que es necesario verificar es infinita, a
+veces es útil pensar en las propiedades matemáticas de algoritmos que nunca terminan.
+
+Supongamos un algoritmo hipotético que intenta construir la cadena final~$s$
+concatenando las cadenas dadas desde ambos extremos hacia el centro, probando
+potencialmente infinitas configuraciones. Durante su ejecución, supongamos que tal
+algoritmo encontró el prefijo~$p = s_{p_1}s_{p_2}\dots s_{p_x}$ y el
+sufijo~$q = s_{q_y}s_{q_{y-1}}\dots s_{q_1}$. Si el algoritmo colocó cada cadena sin
+permitir que existan colisiones y suponiendo sin pérdida de generalidad
+que~$|p| \leq |q|$, entonces los últimos~$|p|$ caracteres de~$q$ forman~$p$ (es
+decir,~$p$ es un sufijo de~$q$). Por lo tanto,~$q = r\cdot p$. Más aun, si suponemos
+que el algoritmo sólo concatena una nueva cadena con el de menor longitud entre~$p$
+y~$q$, entonces~$r$ es el prefijo de alguna cadena dada. Este estado del algoritmo
+puede ser representado por el par ordenado~$(\emptyset, r)$ (donde usamos el
+símbolo~$\emptyset$ para representar la cadena vacía). Luego, si es posible, el
+algoritmo usará una cadena~$s_i$ cuyo prefijo es~$r$ (para no generar una colisión) y
+pagará el costo~$c_i$. En el caso en que~$|r| \leq |s_i|$, es decir
+que~$s_i = r \cdot t$, entonces el nuevo estado del algoritmo puede ser representado
+por~$(t, \emptyset)$. De otra forma, sabemos que~$r = u \cdot s_i$, y el nuevo estado
+del algoritmo puede ser representado por~$(\emptyset, u)$.
+
+Con tal representación de los estados de este algoritmo hipotético, es posible
+observar que siendo~$s = \max s_i$, solamente existen a lo más~$2ns$ posibles estados
+a los que el algoritmo puede llegar (pero infinitos prefijos y sufijos posibles). Por
+este motivo, es posible tratar el conjunto
+
+\begin{equation*}
+  \{(\emptyset, x): x \text{ es prefijo de algún } s_i\}
+  \cup
+  \{(x, \emptyset): x \text{ es sufijo no vacío de algún } s_i\}
+\end{equation*}
+
+como el conjunto de vértices de un grafo~$G$ cuyas aristas están dadas por la
+posibilidad del algoritmo hipotético de moverse de la representación de un estado al
+otro y cuyo peso es el costo de usar la cadena que hace posible dicho movimiento. El
+número de vértices de~$G$ es~$O(n s)$ y cada vértice tiene grado~$O(n)$, por lo que
+el número de aristas es~$O(n^2 s)$. Inicialmente, el algoritmo se encuentra en el
+vértice~$(\emptyset, \emptyset)$, y el objetivo es pasar por al menos otro vértice y
+llegar a uno de los vértices terminales con el costo mínimo. Claramente, estos
+vértices terminales son pares ordenados cuyo término no vacío es un palíndromo y
+también el vértice~$(\emptyset, \emptyset)$. Esto puede ser calculado fácilmente con
+el algoritmo de Dijkstra.
+
+Con una buena implementación del algoritmo de Dijkstra, la complejidad por caso de
+prueba es~$O(|V(G)|\log |V(G)| + |E(G)|) = O(ns(\log(ns) + n))$, dejando una
+complejidad total de~$O(tns(n + \log s))$.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+const ll oo = 1ll<<60ll;
+
+int main(){
+  #ifdef WozMit
+  clock_t _start = clock();
+  #endif
+  int te; cin >> te;
+  while (te--) {
+    int n; cin >> n;
+    vector<string> a(n);
+    vector<int> c(n);
+    for(auto &e: c) cin >> e;
+    for (int i = 0; i < n; ++i)
+      cin >> a[i];
+    int nn = 0;
+
+    // Identificar todos los vtxs y los terminales
+    map<pair<string, string>, int> track;
+    vector<int> terminals;
+    track[{"", ""}] = nn++;
+    for (auto &p: a){
+      for (int i = 0; i <= (int)p.size(); ++i){
+        if(i > 0){
+          string t = p.substr(0, i);
+          track[{"", t}] = nn++;
+          bool is_pal = true;
+          for (int j = 0; is_pal && 2*j < (int)t.size(); j++)
+            if(t[j] != t[t.size() - 1 - j]) is_pal = false;
+          if(is_pal) terminals.push_back(nn - 1);
+        }
+        if(i < (int)p.size()){
+          string t = p.substr(i);
+          track[{t, ""}] = nn++;
+          bool is_pal = true;
+          for (int j = 0; is_pal && 2*j < (int)t.size(); j++)
+            if(t[j] != t[t.size() - 1 - j]) is_pal = false;
+          if(is_pal) terminals.push_back(nn - 1);
+        }
+      }
+    }
+  
+    // Construir el grafo (aristas)
+    vector<vector<pair<int, int>>> G(nn);
+    for(auto [e, x]: track){
+      string t = e.first, s = e.second;
+      for (int i = 0; i < n; ++i) {
+        bool poss_left = true;
+        // Verificar si es posible poner a[i] a la izquierda
+        int mini = min(a[i].size(), s.size());
+        for (int j = 0; poss_left && j < mini; j++)
+          if(a[i][j] != s[s.size() - 1 - j]) poss_left = false;
+        if(t != "") poss_left = false;
+
+        bool poss_right = true;
+        // Verificar si es posible poner a[i] a la derecha
+        mini = min(a[i].size(), t.size());
+        for(int j = 0; poss_right && j < mini; j++)
+          if(t[j] != a[i][a[i].size() - 1 - j]) poss_right = false;
+        if(s != "") poss_right = false;
+
+        if(poss_left){
+          if(a[i].size() >= s.size()){
+            // Sobra a la izquierda
+            pair<string, string> w = {a[i].substr(s.size()), ""};
+            int a = x, b = track[w];
+            G[a].push_back({b, c[i]});
+          } else{
+            // Sobra a la derecha
+            pair<string, string> w = {"", s.substr(0, s.size() - a[i].size())};
+            int a = x, b = track[w];
+            G[a].push_back({b, c[i]});
+          }
+        }
+        if(poss_right){
+          if(a[i].size() >= t.size()){
+            // Sobra a la derecha
+            pair<string, string> w = {"", a[i].substr(0, a[i].size() - t.size())};
+            int a = x, b = track[w];
+            G[a].push_back({b, c[i]});
+          } else {
+            // Sobra a la izquierda
+            pair<string, string> w = {t.substr(a[i].size()), ""};
+            int a = x, b = track[w];
+            G[a].push_back({b, c[i]});
+	  }
+	}
+      }
+    }
+
+    // Ejecutar el algoritmo de Dijkstra's desde 0
+    vector<ll> d(nn, oo);
+    d[0] = 0;
+    priority_queue<pair<ll, int>> q;
+    q.push({0, 0});
+    while ((int)q.size() > 0) {
+      int v = q.top().second;
+      ll dv = -q.top().first;
+      q.pop();
+      // Evitar repetir estados innecesarios
+      if(dv != d[v]) continue;
+      for(auto edge: G[v]){
+        int u = edge.first, w = edge.second;
+        if(d[v] + (ll)w < d[u]){
+          d[u] = d[v] + (ll)w;
+          q.push({-d[u], u});
+        }
+      }
+      // Ya salimos de 0, ya podemos ponerlo en su lugar
+      if(v == 0 && d[0] == 0) d[0] = oo;
+    }
+
+    ll gg = d[0];
+    for (auto e: terminals)
+      if(d[e] < gg)
+        gg = d[e];
+    if(gg == oo) cout << "Imposible\n";
+    else cout << gg << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

@@ -1,0 +1,44 @@
+\begin{problem}{Puntos Extras}{Entrada estándar}{Salida estándar}{1 segundo}{}{Erick Alvarez}
+
+Este semestre estás tomando el curso de algoritmos y estructuras de datos de la licenciatura y actualmente empezaron a estudiar un tema interesante: compresión de datos. Para ello han visto temas como la \textbf{Codificación Huffman}, sin embargo la última tarea que ha enviado el profesor cuenta con problemas más sencillos, el último de ellos consiste en comprimir una cadena de texto iterándola y por cada conjunto repetido de caracteres deberás contar la cantidad de los mismos y después reemplazar el conjunto por dicha cantidad de caracteres más el caracter original.
+\\
+
+Ejemplo: La cadena  \textbf{abbccc} se puede comprimir como \textbf{1a2b3c}.\\
+
+Este reto te resulta muy fácil y lo resuelves en cuestión de minutos. Creyendo que esos eran todos los problemas de la tarea das vuelta a la hoja y miras un enunciado más. Este es una versión más difícil del problema anterior y da 2 puntos adicionales a la tarea si el ejercicio es completado.\\
+
+Ahora, en lugar de considerar la cadena anterior como un todo, esta se deberá dividir en bloques de $k$ elementos contínuos. Por cada bloque se deberán formar los grupos de caracteres, pero además de ello se deberán tomar en cuenta los grupos compuestos de caracteres idénticos en grupos adyacentes a la hora de realizar el conteo final.\\
+
+Si la cadena original es "eoeeuspo" y $k$ es igual a 4 entonces se tienen 2 bloques los cuales se pueden ordenar en "eeeo" y "osup". De esta manera al concatenar las subcadenas y contar el numero de grupos totales el resultado sería 5 (el mínimo posible).\\
+
+¿Crees poder resolver el problema y ganar esos 2 puntos extras?
+
+\InputFile
+
+Una cadena $S$ $(0 < |S| \leq 10^3)$ con letras minúsculas del alfabeto latino y un entero $k$ en la misma línea. Se garantiza que la longitud de la cadena es múltiplo de $k$.
+
+\OutputFile
+
+Un entero, el mínimo número de grupos que se pueden formar.
+
+\Example
+\begin{example}
+\exmp{%%INPUT
+eoeeuspo 4
+}{ %%OUTPUT
+5
+} %%END-OUTPUT
+
+\exmp{%%INPUT
+augzqrcddiut 6
+}{ %%OUTPUT
+10
+} %%END-OUTPUT
+\end{example}
+
+\end{problem}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

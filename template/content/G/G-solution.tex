@@ -1,0 +1,55 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Arreglos.
+
+Los límites de este problema impiden verificar todas las pilas cada vez, por lo que
+otra estrategia es necesaria. Es posible mantener una cola de prioridad (montículo)
+que siempre indique la pila con el menor elemento en el tope. Luego, cada vez que un
+elemento es extraído, se puede actualizar el montículo con el tope de la última pila
+usada.
+
+Complejidad final:~$O(t\sum_{i=1}^np_i \log \sum_{i=1}^np_i)$.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n; cin >> n;
+    stack<int> S[n];
+    for (int i = 0; i < n; i++){
+      int ss; cin >> ss;
+      for (int j = 0; i < ss; j++){
+        int a; cin >> a;
+        S[i].push(a);
+      }
+    }
+    priority_queue<pair<int,int>> Q;
+    for (int i = 0; i < n; i++)
+      Q.push({-S[i].top(), i});
+    while (!Q.empty()) {
+      pair<int, int> curr = Q.top();
+      Q.pop();
+      cout << -curr.first;
+      S[curr.second].pop();
+      if(!S[curr.second].empty())
+        Q.push({-S[curr.second].top(), curr.second});
+    }
+    cout << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

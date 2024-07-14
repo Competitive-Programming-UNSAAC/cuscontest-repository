@@ -1,0 +1,41 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Matemática básica.
+
+Dados~$a_1, \dots, a_{n-1}$, si el número del niño que desaparece es~$x$, se sabe
+que~$a_1 + \cdots + a_{n - 1} + x = 1 + 2 + \cdots + n = n(n + 1) / 2$, por lo
+que~$x = n(n + 1) / 2 - (a_1 + \cdots + a_{n - 1})$.
+
+Esta expresión puede ser calculada en~$O(n)$, teniendo la solución una complejidad
+final de~$O(tn)$.
+
+\textbf{Implementación en C++:}
+
+\begin{lstlisting}[language=C++]
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int te;
+  cin >> te;
+  while (te--) {
+    int n;
+    cin >> n;
+    int sum = n * (n + 1) / 2;
+    for (int i = 0; i < n - 1; i++) {
+      int x; cin >> x;
+      sum -= x;
+    }
+    cout << sum << "\n";
+  }
+  return 0;
+}
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

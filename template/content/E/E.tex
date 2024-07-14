@@ -1,0 +1,66 @@
+\begin{problem}{Sendero}{Entrada estándar}{Salida estándar}{1 segundos}{}{Ulises Mendez Martinez}
+
+Se llegó el día de la limpia del sendero que divide el pueblo de \textbf{Antonio} del pueblo vecino. \textbf{Antonio} sabe que dicha actividad genera tensión entre ambas poblaciones, ya que ninguna quiere realizar más trabajo que la otra.
+
+\\ \\
+
+El sendero se representa como una serie de $N$ segmentos continuos partiendo de un pueblo y llegando al otro, cada segmento requiere de un esfuerzo $E_i$ para ser limpiado.
+
+\\ \\
+
+Ayuda a \textbf{Antonio} a calcular cuál es la mayor cantidad de segmentos que se pueden limpiar de manera que cada población realice el mismo esfuerzo acumulado.
+
+\\ \\
+
+\textbf{Nota}: 
+Cada población inicia en su lado y no pueden omitir segmentos.
+
+
+\InputFile
+
+Cada caso de prueba consiste de dos líneas, la primer línea contiene un único entero $N$ $(1 \le N \le 10^3)$, la cantidad de segmentos en el sendero. La segunda línea contiene $N$ enteros separados por un espacio $(E_i, 1\le i \le N)$  con $(1 \le E_i \le 10^6)$, la cantidad de energía requerida por el segmento $i$ para ser limpiado.
+
+
+\OutputFile
+
+Una línea con dos enteros, indicando la máxima cantidad de segmentos a ser limpiados, la energía acumulada que deberá ser empleada por cada población.
+
+\Example
+
+\begin{example}
+\exmp{%%INPUT
+3
+10 20 10
+}{ %%OUTPUT
+2 10
+} %%END-OUTPUT
+\exmp{%%INPUT
+6
+2 1 4 2 4 1
+}{ %%OUTPUT
+6 7
+} %%END-OUTPUT
+\exmp{%%INPUT
+5
+1 2 4 8 16
+}{ %%OUTPUT
+0 0
+} %%END-OUTPUT
+\exmp{%%INPUT
+9
+7 3 20 5 15 1 11 8 10
+}{ %%OUTPUT
+7 30
+} %%END-OUTPUT
+\end{example}
+
+
+
+
+
+\end{problem}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

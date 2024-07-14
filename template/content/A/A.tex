@@ -1,0 +1,71 @@
+\begin{problem}{La Rebanada Más Rica}{Entrada estándar}{Salida estándar}{1 segundo}{}{Rafa Diaz}
+
+Todos sabemos bien que por alguna extraña razón la última rebanada de un pan de chuta es la más sabrosa. Por lo mismo las peleas por la última rebanada son bastante férreas.
+\\ \\
+Tu mejor amiga y tú, para evitar perder la amistad por un pan de chuta, decidieron inventar un juego para decidir quién tomaría esa deliciosa última rebanada.
+\\ \\
+El juego consiste en imaginariamente dividir el pan en $N$ secciones iguales y usar cada quién un plato que puede contener hasta una rebanada de $M$ secciones de tamaño. A través de un volado deciden quién elige primero una rebanada y toman turnos hasta que alguien se coma la anhelada última rebanada. Las rebanadas que tomen deben medir una cantidad exacta de secciones.
+\\\\
+Has decidido usar tu arduo entrenamiento en resolución de problemas para desarrollar una estrategia ganadora. Esto no es hacer trampa, por supuesto; sino poner a trabajar esas cientos de horas estudiando en algo de primera importancia: conseguir la anhelada última rebanada.
+\\\\
+Ahora bien, escribe un programa que dada la cantidad de secciones imaginarias en las que se haya dividido un pan de chuta, la capacidad del plato y quién empieza, diga si es posible garantizar tomar la última rebanada.
+
+
+\InputFile
+
+En líneas separadas:
+\begin{itemize}
+    \item Un entero, $N$, indicando la cantidad de secciones imaginarias en las que se divide el pan.
+    \item Un entero, $M$, indicando la capacidad máxima del plato, medida en secciones.
+    \item $1$ si eres quien empieza, $2$ si no.
+\end{itemize}
+
+\textbf{Notas}
+\begin{itemize}
+    \item $1 \le M \le 1000000$
+    \item $1 \le N \le 1000$
+\end{itemize}
+
+\OutputFile
+\begin{itemize}
+    \item `QUE BACAN` si es posible garantizar tomar la última rebanada.
+    \item `NO PUEDE SER` si no es posible garantizar tomar la última rebanada.
+\end{itemize}
+
+
+\Example
+
+\begin{example}
+\exmp{%%INPUT
+2
+2
+2
+
+}{ %%OUTPUT
+NO PUEDE SER
+} %%END-OUTPUT
+
+
+\exmp{%%INPUT
+3
+1
+1
+
+}{ %%OUTPUT
+QUE BACAN
+} %%END-OUTPUT
+\end{example}
+
+
+
+Ejemplo 1: Lamentablemente empieza tu amiga y puede tomar una rebanada midiendo $2$ secciones, la última rebanada.
+
+Ejemplo 2: Sólo se pueden tomar rebanadas midiendo $1$ sección. Inevitablemente tomarás la primera y tercera rebanada. Garantizando ganar.
+
+\end{problem}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

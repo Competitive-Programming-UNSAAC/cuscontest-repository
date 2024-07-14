@@ -1,0 +1,30 @@
+\vspace*{0cm}
+{\Large\textbf{Solución}}
+
+\textbf{Conocimientos requeridos:} Manipulación de cadenas de texto.
+
+Cada palabra debe ser tratada independientemente debido a los espacios. Luego es
+suficiente quitar las vocales e imprimir la lista de palabras que no sean vacías
+(palabras como ``a'') se convierten en una cadena vacía.
+
+La complejidad por caso de prueba es~$O(|s|)$, dejando una complejidad total
+de~$O(t |s|)$.
+
+\textbf{Implementación en Python:}
+
+\begin{lstlisting}[language=Python]
+def quitar_vocales(s):
+    return ''.join([x for x in s if x not in "aeiou"])
+
+for _ in range(int(input())):
+    a = [quitar_vocales(x) for x in input().split(' ')]
+    a = [i for i in a if i != ""]
+    print(' '.join(a))
+\end{lstlisting}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
