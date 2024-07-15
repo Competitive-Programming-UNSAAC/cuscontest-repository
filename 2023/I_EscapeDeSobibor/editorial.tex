@@ -1,0 +1,16 @@
+\editorialText{Principio de inclusión-exclusión}
+
+Existen~$\lfloor (n - 1) / x \rfloor$ múltiplos de~$x$
+y~$\lfloor (n - 1) / y \rfloor$ múltiplos de~$y$ menores a~$n$. Si se suman estas
+cantidades se cuentan los múltiplos de~$x$ e~$y$ dos veces, por lo que es necesario
+restar esta cantidad. Ya que~$x$ e~$y$ son números primos, el mínimo común múltiplo
+de estos es~$xy$, por lo que existen~$\lfloor (n - 1) / (xy) \rfloor$ múltiplos
+de~$xy$ menores que~$n$.
+
+La respuesta
+es~$\lfloor (n - 1) / x \rfloor + \lfloor (n - 1) / y \rfloor - \lfloor (n - 1) /
+(xy) \rfloor$.
+
+La complejidad por caso de prueba es~$O(1)$, dejando una complejidad total de~$O(t)$.
+
+\code{C++}{2023/I_EscapeDeSobibor/solution.cpp}

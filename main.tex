@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage{olymp}
+%\usepackage{bnf}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{afterpage}
+\usepackage{float}
+\usepackage{pgffor}
+\usepackage{fancyvrb}
+
+\usepackage[ruled, vlined]{algorithm2e}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\newtheorem*{proposition*}{Proposición}
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Code style definition
+\lstdefinestyle{codeStyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codepurple}\ttfamily,
+  morecomment=[l][\color{magenta}]{\#},
+  keywordstyle=\color{blue}\ttfamily,
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{red}\ttfamily,
+  basicstyle=\ttfamily,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+\lstset{style=codeStyle}
+
+% Vars definition for document test
+%\def\cuscontestName{CUSCONTEST TEST}
+%\def\cuscontestDate{Cusco, 14 de Julio del 2024}
+%\def\folderpath{template}
+%\def\folderlist{CombinacionDeLaCerradura}
+
+% Vars definition for document
+\def\cuscontestName{CUSCONTEST XX}
+\def\cuscontestDate{Cusco, 29 de Diciembre del 2023}
+\def\folderpath{2023}   
+\def\folderlist{
+    A_LaRebanadaMasRica,
+    B_SuperEquipo,
+    C_EncuentroEstudiantilOptimizado,
+    D_Cordilleras,
+    E_Sendero,
+    F_LaNavidadDeKleiber,
+    G_LucesNavidenasDeColores,
+    H_ArregloRotado,
+    I_EscapeDeSobibor,
+    J_NumerosMalditos,
+    K_ElEventoEscolar,
+    L_PuntosExtras,
+    M_DiosSiCastigaDosVeces,
+    N_RestaBasica}
+\def\description{description.tex}
+\def\editorial{editorial.tex}
+
+% New commands
+\renewcommand{\contestname}{
+    \cuscontestName \\
+    \cuscontestDate
+}
+
+\newcommand{\problemText}[6]{
+    \begin{problem}{#1}{#2}{#3}{#4}{#5}{#6}
+}
+
+\newcommand{\inputText}{
+    \InputFile
+}
+
+\newcommand{\outputText}{
+    \OutputFile
+}
+
+\newcommand{\exampleCases}{
+    \Example
+}
+
+\newcommand{\caseFile}[1]{
+    \VerbatimInput{#1}
+}
+
+\newcommand{\explanationText}{
+    \Explanation
+}
+
+\newcommand{\editorialText}[1]{
+    \vspace*{0cm}
+    {\Large\textbf{Solución:}}\\
+    \textbf{Conocimientos requeridos:} #1.\\
+}
+
+\newcommand{\code}[2]{
+    \vspace{0.7cm}
+    \textbf{Implementación en #1:}
+    \vspace{0.25cm}
+    \lstinputlisting[language=#1,style=codeStyle]{#2}
+}
+
+% Main document
+\begin{document}
+    % Provide problems and editorial
+    \providetoggle{solution}
+    \settoggle{solution}{true}
+    %\settoggle{solution}{false}
+
+    % Layer page
+    \input{layer.tex}
+    \newpage
+    
+    % Informations page
+    \input{information.tex}
+    \newpage
+
+    % Problems and editorials
+    \foreach \folder in \folderlist {
+        \input{\folderpath/\folder/\description}
+        \iftoggle{solution}{\newpage\input{\folderpath/\folder/\editorial}}{}
+        \newpage
+    }
+\end{document}

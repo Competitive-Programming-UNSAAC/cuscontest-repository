@@ -1,0 +1,51 @@
+\editorialText{Caminos mínimos en grafos con peso (Dijkstra),
+prefijos y sufijos}
+
+Aunque aparentemente la cantidad de cadenas que es necesario verificar es infinita, a
+veces es útil pensar en las propiedades matemáticas de algoritmos que nunca terminan.
+
+Supongamos un algoritmo hipotético que intenta construir la cadena final~$s$
+concatenando las cadenas dadas desde ambos extremos hacia el centro, probando
+potencialmente infinitas configuraciones. Durante su ejecución, supongamos que tal
+algoritmo encontró el prefijo~$p = s_{p_1}s_{p_2}\dots s_{p_x}$ y el
+sufijo~$q = s_{q_y}s_{q_{y-1}}\dots s_{q_1}$. Si el algoritmo colocó cada cadena sin
+permitir que existan colisiones y suponiendo sin pérdida de generalidad
+que~$|p| \leq |q|$, entonces los últimos~$|p|$ caracteres de~$q$ forman~$p$ (es
+decir,~$p$ es un sufijo de~$q$). Por lo tanto,~$q = r\cdot p$. Más aun, si suponemos
+que el algoritmo sólo concatena una nueva cadena con el de menor longitud entre~$p$
+y~$q$, entonces~$r$ es el prefijo de alguna cadena dada. Este estado del algoritmo
+puede ser representado por el par ordenado~$(\emptyset, r)$ (donde usamos el
+símbolo~$\emptyset$ para representar la cadena vacía). Luego, si es posible, el
+algoritmo usará una cadena~$s_i$ cuyo prefijo es~$r$ (para no generar una colisión) y
+pagará el costo~$c_i$. En el caso en que~$|r| \leq |s_i|$, es decir
+que~$s_i = r \cdot t$, entonces el nuevo estado del algoritmo puede ser representado
+por~$(t, \emptyset)$. De otra forma, sabemos que~$r = u \cdot s_i$, y el nuevo estado
+del algoritmo puede ser representado por~$(\emptyset, u)$.
+
+Con tal representación de los estados de este algoritmo hipotético, es posible
+observar que siendo~$s = \max s_i$, solamente existen a lo más~$2ns$ posibles estados
+a los que el algoritmo puede llegar (pero infinitos prefijos y sufijos posibles). Por
+este motivo, es posible tratar el conjunto
+
+\begin{equation*}
+  \{(\emptyset, x): x \text{ es prefijo de algún } s_i\}
+  \cup
+  \{(x, \emptyset): x \text{ es sufijo no vacío de algún } s_i\}
+\end{equation*}
+
+como el conjunto de vértices de un grafo~$G$ cuyas aristas están dadas por la
+posibilidad del algoritmo hipotético de moverse de la representación de un estado al
+otro y cuyo peso es el costo de usar la cadena que hace posible dicho movimiento. El
+número de vértices de~$G$ es~$O(n s)$ y cada vértice tiene grado~$O(n)$, por lo que
+el número de aristas es~$O(n^2 s)$. Inicialmente, el algoritmo se encuentra en el
+vértice~$(\emptyset, \emptyset)$, y el objetivo es pasar por al menos otro vértice y
+llegar a uno de los vértices terminales con el costo mínimo. Claramente, estos
+vértices terminales son pares ordenados cuyo término no vacío es un palíndromo y
+también el vértice~$(\emptyset, \emptyset)$. Esto puede ser calculado fácilmente con
+el algoritmo de Dijkstra.
+
+Con una buena implementación del algoritmo de Dijkstra, la complejidad por caso de
+prueba es~$O(|V(G)|\log |V(G)| + |E(G)|) = O(ns(\log(ns) + n))$, dejando una
+complejidad total de~$O(tns(n + \log s))$.
+
+\code{C++}{2023/N_RestaBasica/solution.cpp}

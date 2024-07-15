@@ -1,0 +1,55 @@
+\problemText{Números Malditos}{Entrada estándar}{Salida estándar}{1 segundo}{}{Justino Ferro}
+
+Luz es una chica muy inteligente y dedicada a sus estudios. Durante su curso de programación competitiva ayer, El profesor planteó un problema intrigante con la siguiente premisa:
+
+Se le pide contar una serie de números, pero con una peculiaridad: debe evitar ciertos números primos que, según la superstición, traen mala suerte. por tal motivo se saltará por completo esos números y sus múltiplos en su conteo. Por ejemplo, si los números primos $3, 5$ y $11$ están en su lista de evitar, la secuencia de números que enumerará comenzará así: $1, 2, 4, 7, 8, 13, 14, 16, 17,. . .$.
+
+El reto consiste en determinar cuál es el $n$-ésimo número en esta secuencia especial. Después de evitar los numero primos y sus múltiplos ¿cuál es el $n$-ésimo número que se obtiene al empezar a contar desde $1$?
+
+
+El profesor, consciente de la dificultad del problema, mencionó que, además de calificarlo, premiaría con una suma considerable de dinero a la primera persona que lo resolviera.
+
+
+Motivada por el premio en efectivo y su destreza en matemáticas, Luz encontró rápidamente la idea para la solución del problema y planeó implementarla al llegar a casa.
+
+
+Cuando estaba a punto de comenzar a implementar la solución, encontró una botella de licor en su casa por casualidad. Aunque supuestamente ella no  bebe alcohol, pensó que era un refresco y se lo tomó. Después de unos minutos, comenzó a sentir los efectos del alcohol y terminó haciendo muchas cosas, excepto resolver el problema.
+
+
+Hoy es el día de la entrega de la tarea y Luz aún sufre los efectos del alcohol. No ha logrado hacer nada. Dado que este curso es su favorito y no quiere decepcionar a su profesor, te pidió ayuda para implementar la solución al problema.
+
+\inputText
+
+La primera línea de entrada contiene dos números enteros: $n$  $(1 \leq n \leq 10^{17})$, que indica el número de la consulta, y $k$  $(1 \leq k \leq 14)$, que indica el número de números primos distintos que  se evita al contar (de nuevo, también se evitan los múltiplos de estos números primos al contar).
+
+La segunda línea de entrada tiene $k$ números primos distintos, que representan los números (y múltiplos) que se evita.
+
+Supongamos que el producto de todos estos números primos no excederá $10^{17}$, por ejemplo, la lista de números primos puede ser {2, 3, 5, 11} ya que su producto $(330)$ no excede $10^{17}$ pero la lista de números primos no será {1000000007, 1000000009} ya que su producto excede $10^{17}$.
+
+
+
+\textbf{Notas:}
+
+\begin{itemize}
+    \item  Tenga en cuenta que, como se muestra en la entrada de ejemplo, los números primos se pueden enumerar en cualquier orden (es decir, no necesariamente se enumeran en orden creciente).
+\end{itemize}
+
+\outputText
+
+Imprime el $n$-ésimo número que deberá responder Luz  .
+
+\exampleCases
+
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2023/J_NumerosMalditos/in/1.in}
+    }{%%OUTPUT
+        \caseFile{2023/J_NumerosMalditos/out/1.out}
+    }%%END-OUTPUT
+    \exmp{%%INPUT
+        \caseFile{2023/J_NumerosMalditos/in/2.in}
+    }{%%OUTPUT
+        \caseFile{2023/J_NumerosMalditos/out/2.out}
+    }%%END-OUTPUT
+\end{example}
+

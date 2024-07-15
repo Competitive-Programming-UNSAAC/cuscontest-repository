@@ -1,0 +1,39 @@
+\problemText{El Evento Escolar}{Entrada estándar}{Salida estándar}{2 segundo}{}{Erick Alvarez}
+
+Se acerca el evento de fin de año en la Universidad de Cusco y tú eres las persona encargada de llevar a acabo los preparativos previos, para lo que se te ha dado una lista de tareas $T_1$, $T_2$, ..., $T_N$ por cumplir, las cuales a su vez cuentan con una cantidad de subtareas. Ej. la tarea $T_i$ cuenta con las subtareas $t_{i1}$, $t_{i2}$, ..., $t_{ik}$.\\\\
+
+Como eres una persona muy organizada tu has decidido que todas las subtareas asociadas a la tarea $T_i$ se deben cumplir antes de las subtareas asociadas a la tarea $T_{i+1}$ para todo $i$. Para ello decides contar todas las formas en las que esto es posible y anotar el resultado en tu libreta de preparativos.\\\\
+
+\textbf{Aquí va un ejemplo:} Imagina que se tienen las tareas $T_1$, $T_2$ y cada una cuenta con 2 subtareas.
+Las maneras en las que podemos organizar estas últimas respetando la restricción anterior es:
+
+$$t_{1}, t_{1}, t_{2}, t_{2}$$
+
+$$t_{1}, t_{2}, t_{1}, t_{2}$$
+
+$$t_{2}, t_{1}, t_{1}, t_{2}$$
+
+Ten en mente que no te importa el orden en el que se realicen las subtareas asociadas a la tarea $T_i$ sólo que estén listas antes de las correspondientes a $T_{i+1}$.
+
+\inputText
+
+Un número $n$ $(1 \leq n \leq 100)$ indicando la cantidad de tareas a cumplir, en la siguiente línea $n$ enteros  $T_i$ $(0 < T_1 + T_2 + .. + T_n \leq 10^6)$ indicando el número de subtareas asociadas a $T_i$.
+
+\outputText
+
+Un único entero indicando el número de formas en las que se pueden cumplir todas las subtareas. Como la salida puede ser muy grande deberás aplicarle módulo \text{1000000007}.
+
+\exampleCases
+
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2023/K_ElEventoEscolar/in/1.in}
+    }{%%OUTPUT
+        \caseFile{2023/K_ElEventoEscolar/out/1.out}
+    }%%END-OUTPUT
+    \exmp{%%INPUT
+        \caseFile{2023/K_ElEventoEscolar/in/2.in}
+    }{%%OUTPUT
+        \caseFile{2023/K_ElEventoEscolar/out/2.out}
+    }%%END-OUTPUT
+\end{example}

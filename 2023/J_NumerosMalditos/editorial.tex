@@ -1,0 +1,43 @@
+\editorialText{Caminos mínimos en grafos sin peso (BFS) y álgebra lineal básica}
+
+Por conveniencia, llamaremos a las configuraciones estables simplemente
+configuraciones. La siguiente observación es de utilidad para resolver este problema.
+
+\begin{proposition*}
+  Dos configuraciones son diferentes si y solo si las suma de los radiovectores de
+  los escarabajos en ambas configuraciones son diferentes.
+\end{proposition*}
+\begin{proof}
+Para la condición necesaria, probaremos que una configuración determina únicamente
+la suma de los radiovectores de las posiciones. Sea~$(x, y)$ la posición del
+escarabajo central en una configuración y las posiciones de los otros
+escarabajos~$(x + \Delta x, y)$ y~$(x, y + \Delta y)$. La suma de los radiovectores
+de estas posiciones es~$(3x + \Delta x, 3y + \Delta y)$.
+
+Para la condición suficiente, sea~$v$ la suma de los radiovectores de alguna
+configuración. No es difícil ver que la posición del escarabajo central es
+siempre~$\text{round}(v / 3)$ (donde el redondeo se aplica independientemente a ambas
+coordenadas del vector). Teniendo la posición de este escarabajo, es fácil calcular
+las posiciones de los demás escarabajos (por ejemplo, si esta posición es~$(x, y)$ y
+si la coordenada en~$x$ de~$v$ es~$3x - 1$ entonces hay un escarabajo a la izquierda,
+si es~$3x + 1$ hay un escarabajo a la derecha). Por lo tanto, la configuración se
+determina únicamente.
+\end{proof}
+
+Entonces, el problema se puede replantear como: pasar de la posición~$(1, 1)$ a la
+posición~$(x_1 + x_2 + x_3, y_1 + y_2 + y_3)$ saltando de posición en posición de
+acuerdo a las reglas de movimiento en el mínimo número de movimientos.
+
+Es posible tratar las posiciones del nuevo problema como vértices de un grafo, donde
+el número de vecinos de un vértice es una constante (¿cuál?). El número de vértices y
+aristas de este grafo es~$O(\max x_i \max y_i)$ Los límites del problema hacen posible usar el
+algoritmo BFS (búsqueda en anchura) en este grafo para encontrar la longitud de un
+camino más corto de la posición inicial a la posición final.
+
+La complejidad por caso de prueba es~$O(\max x_i \max y_i)$, dejando una complejidad
+total de~$O(t \max x_i \max y_i)$.
+
+Es posible realizar una solución~$O(1)$ por caso de prueba observando un patrón para
+posiciones pequeñas y probando que tal patrón se mantiene por inducción.
+
+\code{C++}{2023/J_NumerosMalditos/solution.cpp}

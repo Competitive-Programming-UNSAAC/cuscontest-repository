@@ -1,0 +1,18 @@
+\editorialText{Arreglos y prefijos}
+
+Es fácil ver que si el rango a tomar es~$[i, j]$, entonces siempre es óptimo
+escoger~$p = \min \{t_i, t_{i + 1}, \dots, t_j\}$, y la solución
+será~$p (j - i + 1)$. Si para cada posible rango, se calcula el mínimo en tal rango,
+entonces es fácil escoger aquel que maximice esta expresión.
+
+El problema ahora se reduce a calcular el mínimo en un rango, para todos los~$O(n^2)$
+rangos. Usar una estructura de datos como un Segment Tree (árbol de segmentos) o BIT
+(árbol binario indexado) resultará en un Tiempo Límite Excedido. Ya que se quiere
+calcular este mínimo para todos los rangos, es posible reutilizar información. Si se
+tiene el mínimo para el rango~$[i, j - 1]$, entonces calcular el mínimo para el
+rango~$[i, j]$ en tiempo constante es trivial.
+
+La complejidad por caso de prueba es~$O(n^2)$, dejando una complejidad total
+de~$O(tn^2)$.
+
+\code{C++}{2023/H_ArregloRotado/solution.cpp}

@@ -1,0 +1,11 @@
+\editorialText{Arreglos}
+
+Los límites de este problema impiden verificar todas las pilas cada vez, por lo que
+otra estrategia es necesaria. Es posible mantener una cola de prioridad (montículo)
+que siempre indique la pila con el menor elemento en el tope. Luego, cada vez que un
+elemento es extraído, se puede actualizar el montículo con el tope de la última pila
+usada.
+
+Complejidad final:~$O(t\sum_{i=1}^np_i \log \sum_{i=1}^np_i)$.
+
+\code{C++}{2023/G_LucesNavidenasDeColores/solution.cpp}

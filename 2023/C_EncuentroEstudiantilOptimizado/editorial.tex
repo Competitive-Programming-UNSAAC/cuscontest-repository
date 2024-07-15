@@ -1,0 +1,36 @@
+\editorialText{Álgebra elemental y descomposición polinómica de un número}
+
+Sea~$n = 1 + \lfloor \log_{10} x \rfloor$ el número de dígitos de~$x$ e~$y$. Sean
+también~$x_i$ e~$y_i$ los~$i$-ésimos dígitos más bajos de~$x$ e~$y$ respectivamente,
+con indexación~$0$. Luego
+\begin{align*}
+  xy &= \sum_{i = 0}^{n-1} \sum_{j = 0}^{n-1}x_iy_j 10^{i + j} \\
+     &= \sum_{i = 0}^{n-1}x_iy_i 10^{2i} + \sum_{i = 0}^{n-1} \sum_{j = i + 1}^{n -
+       1} \left(x_iy_j + x_jy_i\right) 10^{i + j}.
+\end{align*}
+Es fácil ver que~$\sum_{i = 0}^{n-1}x_iy_i 10^{2i}$ no cambia con las operaciones de
+Gándalf. Por lo tanto, el objetivo es
+minimizar~$\sum_{i = 0}^{n-1} \sum_{j = i + 1}^{n - 1} \left(x_iy_j + x_jy_i\right)
+10^{i + j}$. Para analizar si un intercambio de dígitos vale la pena, se puede
+observar que
+\begin{equation*}
+  \left(x_iy_j + x_jy_i\right) - \left(x_iy_i + x_jy_j\right) = x_i\left(y_j - y_i\right) + x_j\left(y_i - y_j\right) = \left(x_j
+    - x_i\right) \left(y_i - y_j\right).
+\end{equation*}
+Por lo tanto, si~$(x_j - x_i)$ y~$(y_i - y_j)$ tienen el mismo signo (ambos positivos
+o ambos negativos), entonces~$x_iy_j + x_jy_i < x_iy_i + x_jy_j$. Si tienen signos
+opuestos (uno positivo y el otro negativo),
+entonces~$x_iy_i + x_jy_j < x_iy_j + x_jy_i$.
+
+Entonces, para minimizar~$xy$ es conveniente siempre dejar para toda posición~$i$,
+que~$x_i$ sea el menor de~$x_i$ e~$y_i$; y que~$y_i$ sea el mayor.
+
+Luego de esto, la respuesta puede ser computada
+calculando~$\sum_{i=0}^{n-1}x_i10^{i} \mod 10^9 + 7$
+y~$\sum_{i=0}^{n-1}y_i10^{i} \mod 10^9 + 7$ separadamente y luego calculando el
+producto de ambos módulo~$10^9 + 7$.
+
+La complejidad por caso de prueba es~$O(n)$, dejando una complejidad total
+de~$O(tn)$.
+
+\code{C++}{2023/C_EncuentroEstudiantilOptimizado/solution.cpp}

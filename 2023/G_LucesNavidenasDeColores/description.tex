@@ -1,0 +1,29 @@
+\problemText{Luces Navideñas De Colores}{Entrada estándar}{Salida estándar}{1 segundo}{}{Grober Castro}
+
+Dado un árbol, donde cada vértice tiene asignado un color (Rojo -'R', Verde - ‘V’). Para cada consulta $(u,v)$, donde $u$ y $v$ son nodos del árbol. Retornar el número de luzes Rojas y Verdes en el camino del nodo $u$ a $v$.
+
+
+\inputText
+
+Existen múltiples casos (serán como máximo 10 casos), que finalizan con EOF.
+Para cada caso, la primera línea contiene $n$ $(1 \leq n \leq 1000)$  y $q$ $(1 \leq q \leq 20000)$, que representa el número de vértices (enumerados de $1$ a $ n$) y el número de consultas.
+
+Las siguiente línea contiene $n$ caracteres separados por espacios que representan los colores del $i$-ésimo nodo.
+
+Las siguientes $n - 1$ líneas, contiene un par de números enteros $u, v$ $(1 \leq u,v \leq n)$ que representa la existencia de una arista de $u$ a $v$ .
+
+Las siguientes $q$ líneas, contiene dos enteros $u,v $ representando una consulta.
+
+\outputText
+
+Para cada consulta debes imprimir el número de nodos de color rojo (R) y verde (V).
+
+\exampleCases
+
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2023/G_LucesNavidenasDeColores/in/1.in}
+    }{%%OUTPUT
+        \caseFile{2023/G_LucesNavidenasDeColores/out/1.out}
+    }%%END-OUTPUT
+\end{example}
