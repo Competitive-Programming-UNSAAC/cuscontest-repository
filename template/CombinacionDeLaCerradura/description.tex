@@ -1,6 +1,6 @@
 % Command to problem header section
-% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}
-\problemText{Combinacion De La Cerradura}{Entrada estándar}{Salida estándar}{2 segundos}{}{Kleiber Ttito}
+% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
+\problemText{Combinacion De La Cerradura}{Entrada estándar}{Salida estándar}{2 segundos}{}{Kleiber Ttito}{FFFFFF}
 
 Scrooge McDuck guarda sus ahorros más preciados en una caja fuerte con una combinación de cerradura. Cada vez que quiere poner allí los tesoros que ha ganado de manera justa, tiene que abrir la cerradura.
 
@@ -38,12 +38,17 @@ Imprime un único número entero, el número mínimo de movimientos que Scrooge 
     }{%%OUTPUT
         \caseFile{template/CombinacionDeLaCerradura/out/1.out}
     }%%END-OUTPUT
+        \exmp{%%INPUT
+        \caseFile{template/CombinacionDeLaCerradura/in/2.in}
+    }{%%OUTPUT
+        \caseFile{template/CombinacionDeLaCerradura/out/2.out}
+    }%%END-OUTPUT
 \end{example}
 
 % Command to explanation section, If you need to clarify anything from the example cases
 \explanationText
 
-En la muestra necesita 13 movimientos:
+En el primer ejemplo se necesita 13 movimientos:
 \begin{itemize}
     \item 1 disco: $8 \longrightarrow 7 \longrightarrow 6$
     \item 2 disco: $2 \longrightarrow 3 \longrightarrow 4$
