@@ -47,6 +47,28 @@
 }
 \lstset{style=codeStyle}
 
+% Balloon
+\newcommand{\balloon}[1]{
+   \begin{minipage}{0cm}{
+        \vspace*{-0.5cm}
+        \hspace*{3.0cm}
+        \smash{
+            \begin{tikzpicture}[overlay, scale=.25]
+                \definecolor{ballooncolor}{HTML}{#1}
+                \definecolor{fakewhite}{HTML}{ffffcc}
+                \tikzstyle{balloon}=[outer color=ballooncolor,inner color=ballooncolor!30!fakewhite];
+                \shade[ball color=ballooncolor] (-.1,-2) -- (-.3,-2.2) -- (.3,-2.2) -- (.1,-2) -- cycle;
+                \draw (0,-2.2) .. controls (-0.5,-2.8) and (-0.5,-3.4) .. (0,-4);
+                \draw (0,-4) .. controls (0.5,-4.6) and (0.5,-5.2) .. (0,-5.8);
+                \draw[thick] ellipse (1.75 and 2);
+                \clip ellipse (1.75 and 2);
+                \shade[balloon] (-.5,.5) circle (3);
+            \end{tikzpicture}
+        }
+    }
+   \end{minipage}
+}
+
 % Vars definition for document test
 %\def\cuscontestName{CUSCONTEST TEST}
 %\def\cuscontestDate{Cusco, 14 de Julio del 2024}

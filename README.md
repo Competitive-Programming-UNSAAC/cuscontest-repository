@@ -21,3 +21,12 @@ Steps to write a problem:
 4. Create the `in` folder, and inside put the inputs of examples of your problem and the other cases that will be used to judge.
 5. Create the `out` folder and inside put all the test case results including the example ones.
 6. Once you have your problem, put it in a branch and open a pull request. This should pass a two-person review.
+
+## Input format
+
+The following formats of how the input will be read are recommended:
+
+1. Read a number that represents the total number of test cases and then the input format of each test case.
+2. Read the input format of each test case until there are no more cases.
+
+This allows us to organize inputs and outputs in fewer files. Which also makes it easier to upload it to the online judge.
