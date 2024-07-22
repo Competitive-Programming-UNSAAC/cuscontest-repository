@@ -4,9 +4,9 @@
 
 This repository contains the problems formulated for the different editions of `CUSCONTEST`.
 
-### Writing A Problem
-
 To write a problem just follow the same format specified in the folder `template`. The problem will be written using LaTex, There are some new commands that will be necessary to use in the structure of the document. If in doubt, consult the examples from previous editions. Inside this folder there is an example of a problem called `CombinacionDeLaCerradura`
+
+### Writing A Problem
 
 Steps to write a problem:
 
