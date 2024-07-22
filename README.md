@@ -35,7 +35,7 @@ This allows us to organize inputs and outputs in fewer files. Which also makes i
 One way to test that your problem is written correctly is through Overleaf:
 
 1. Open the [cuscontest-repository project](https://www.overleaf.com/9544566223xxngyxghkmby#e048af) on the overleaf
-2. Add your problem folder inside `template folder` in the project and follow the format explained above
+2. Add your problem folder inside `template folder` in the project and follow the format explained above. You can use the folder or files upload overleaf feature (sometimes it happens that this does not upload the `out` folder; in this case, create the folder manuall usign overleaf feature and upload your test output files)
 3. Add the folder name of your problem in the list in the `main.tex` file `line 77`
 ```
 \def\folderlist{CombinacionDeLaCerradura}  % ADD HERE YOUR FOLDER PROBLEM USING COMMA SEPARATOR
