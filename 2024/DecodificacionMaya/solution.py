@@ -1,51 +1,44 @@
-from enum import Enum
+#!/usr/bin/env python
 
+import sys
 
-class Mayan1Decimal(str, Enum):
-    zero = '<=>'
-    one = '*'
-    five = '---'
+MAYAN_NUMBER_ZERO = '<=>'
+MAYAN_NUMBER_FIVE = '---'
 
 
 def decode(mayan_number: list[list[str]]) -> int:
-    # Helper function to decode a single level
+    def mayan_symbol_to_integer(symbol: str) -> int:
+        if symbol == MAYAN_NUMBER_ZERO:
+            return 0
+        if symbol == MAYAN_NUMBER_FIVE:
+            return 5
+        return len(symbol)  # Assume that symbol is full of ones "*", therefore its value is equal to the length of symbol
+
     def decode_level(level: list[str]) -> int:
-        value = 0
-        for symbol in level:
-            if symbol == Mayan1Decimal.zero:
-                continue
-            elif symbol == Mayan1Decimal.five:
-                value += 5
-            else:
-                # symbol is one
-                value += len(symbol)
-        return value
+        # Decode each symbol one by one
+        return sum(mayan_symbol_to_integer(symbol) for symbol in level)
 
     # Decode each level from the bottom up
-    total_value = 0
-    for position, level in enumerate(reversed(mayan_number)):
-        level_value = decode_level(level)
-        total_value += level_value * (20 ** position)
-
-    return total_value
+    return sum(
+        decode_level(level) * (20 ** position)
+        for position, level in enumerate(reversed(mayan_number))
+    )
 
 
-def solve(tty_in):
-    digit = []
+def main() -> None:
+    level = []
     mayan_number = []
-    for line in tty_in:
+    for line in sys.stdin:
         if len(line.strip()) == 0:
-            mayan_number.append(digit)
-            digit = []
+            mayan_number.append(level)
+            level = []
         else:
-            digit.append(line.strip())
-    mayan_number.append(digit)
-    decimal = decode(mayan_number)
+            level.append(line.strip())
+    mayan_number.append(level)
 
-    return decimal
+    print(decode(mayan_number))
 
     
 if __name__ == '__main__':
-    import sys
-    print(solve(sys.stdin))
+    main()
             
