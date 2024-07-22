@@ -1,8 +1,10 @@
-# Cuscontest Repository
+# Don't commit directly to the main branch!
+
+## Cuscontest Repository
 
 This repository contains the problems formulated for the different editions of `CUSCONTEST`.
 
-## Writing A Problem
+### Writing A Problem
 
 To write a problem just follow the same format specified in the folder `template`. The problem will be written using LaTex, There are some new commands that will be necessary to use in the structure of the document. If in doubt, consult the examples from previous editions. Inside this folder there is an example of a problem called `CombinacionDeLaCerradura`
 
@@ -19,7 +21,7 @@ Steps to write a problem:
 6. Create the `out` folder and inside put all the test case results including the example ones.
 7. **Once you have your problem open a pull request from youyr branch**. This should pass a two-person review.
 
-### Input format
+#### Input format
 
 The following formats of how the input will be read are recommended:
 
@@ -28,7 +30,7 @@ The following formats of how the input will be read are recommended:
 
 This allows us to organize inputs and outputs in fewer files. Which also makes it easier to upload it to the online judge.
 
-## Testing Using Overleaf
+### Testing Using Overleaf
 
 One way to test that your problem is written correctly is through Overleaf:
 
