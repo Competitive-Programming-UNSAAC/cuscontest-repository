@@ -1,0 +1,44 @@
+Tienes muchas guitarras, y cada guitarra tiene un número de serie único. Quieres poder buscar los números de serie rápidamente, así que decides ordenar la lista completa de la siguiente manera.
+
+Cada número de serie consiste en letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Para ver si el número de serie A viene antes que el número de serie B, usa los siguientes pasos:
+
+   Si A y B tienen diferente longitud, el que tenga la longitud más corta viene primero.
+   De lo contrario, si sum_of_digits(A) difiere de sum_of_digits(B) (donde sum_of_digits(X) devuelve la suma de todos los dígitos en la cadena X), el que tenga la suma más baja viene primero.
+   De lo contrario, compáralos alfabéticamente, donde los dígitos vienen antes que las letras.
+
+Dado una secuencia de N serialNumbers, imprime una secuencia ordenada de números de serie en orden ascendente y separadas por un espacio.
+
+RESTRICCIONES
+- TestCases es un número entre 1 y 100 inclusive.
+- N es un número entre 1 y 50 inclusive.
+- Cada elemento de serialNumbers contendrá entre 1 y 50 caracteres inclusive.
+- serialNumbers solo contendrá letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9').
+- Todos los elementos de serialNumbers serán distintos.
+
+EJEMPLOS
+
+3
+5
+ABCD
+145C
+A
+A910
+Z321
+2
+Z19
+Z20
+2
+AA
+B
+
+Imprime:
+
+A ABCD Z321 145C A910
+Z20 Z19
+B AA
+
+Explicación:
+
+Para el primer caso: el primer número de serie es "A" porque tiene la longitud más corta. Todos los demás tienen longitud 4, pero "ABCD" tiene la suma más baja. El siguiente más bajo es "Z321", y finalmente "A910" viene antes que "145C" porque "A" viene antes del "1" (ambos tienen suma = 10).
+
+Para el segundo caso: 1+9 > 2+0, así que "Z20" viene antes.
