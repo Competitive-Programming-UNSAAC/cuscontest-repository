@@ -9,5 +9,5 @@
 - [ ] ¿Se entiende el problema?
 - [ ] ¿Son suficientes los ejemplos de prueba?
 - [ ] ¿Son suficientes los casos de prueba para subir al juez?
-- [ ] ¿El código de la solución cubre los casos?
+- [ ] ¿El código de la solución esta legible y cubre los casos?
 - [ ] ¿Resolviste el problema?
