@@ -1,0 +1,9 @@
+\editorialText{Grafos, Arbol de expansion minima}
+
+Dado que el costo es equivalente a la distancia, no hay diferencia al hablar de costo o distancia entre dos nodos a través de una vía.
+
+Por lo tanto, cuando se trata de modelar un grafo (red de transporte) que utiliza las aristas con distancias mínimas (vías de menor distancia) entre los nodos (almacenes) y asegura la existencia de un camino entre cualquier par de nodos, estamos hablando de un árbol de expansión mínima.
+
+Entonces, se calculan todas los pesos entre los nodos (las distancias de las vias entre almacenes), generando un grafo completo. Sobre este grafo, se determina el árbol de expansión mínima. Sin embargo, debemos tener en cuenta que los camiones propios de Amazon cubrirán las aristas con mayor peso del árbol de expansión mínima (aristas con mayor distancia). Por lo tanto, la respuesta será las distancia máxima de las aristas que no son cubiertas por el transporte propio de Amazon en el árbol de expansión mínima.
+
+\code{C++}{2024/RedDeTransporte/solution.cpp}
