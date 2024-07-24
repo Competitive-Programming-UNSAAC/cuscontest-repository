@@ -6,7 +6,6 @@ for _ in range(t):
     for i in range(n):
         if i !=0: arreglo_de_multiplicaciones_acumuladas[i] = arreglo_de_multiplicaciones_acumuladas[i]*arreglo_de_multiplicaciones_acumuladas[i-1]
     arreglo_de_multiplicaciones_acumuladas = [1] + arreglo_de_multiplicaciones_acumuladas   
-    print(arreglo_de_multiplicaciones_acumuladas)
     q = int(input())
     for qi in range(q):
         x,y,p = map(int, input().split())
