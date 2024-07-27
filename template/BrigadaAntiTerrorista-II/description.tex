@@ -1,0 +1,40 @@
+% Command to problem header section
+% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
+\problemText{Brigada Anti-Terrorista (Medio)}{Entrada estándar}{Salida estándar}{2
+  segundos}{}{Jared León}{FFFFFF}
+
+La única diferencia con la versión fácil de este problema (Brigada Anti-Terrorista
+(Fácil)) es que ahora~$1 \leq n \leq 2 \cdot 10^5$.
+
+% Command to input text section
+\inputText
+
+La primera línea contiene un entero~$t$ ($1 \leq t \leq 2$) indicando el número de
+casos. La primera línea de cada caso contiene un único entero~$n$
+($1 \leq n \leq 2 \cdot 10^5$). Las siguientes~$n$ líneas contienen un par de
+enteros~$x_i$,~$y_i$ ($|x_i|, |y_i| \leq 10^8$) separados por un espacio.
+
+% Command to output text section
+\outputText
+
+Para cada caso, imprime la respuesta en una única línea.
+
+% Command to examples section
+\exampleCases
+
+% Create a table with some examples of input and output cases
+% Parameters {Example case filepath}
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{template/BrigadaAntiTerrorista-II/in/1.in}
+    }{%%OUTPUT
+        \caseFile{template/BrigadaAntiTerrorista-II/out/1.out}
+    }%%END-OUTPUT
+\end{example}
+
+% Command to explanation section, If you need to clarify anything from the example cases
+\explanationText
+
+Una ayuda: observa
+que~$|x_i - x_j| + |y_i - y_j| = \max \{|x_i + y_i - (x_j + y_j)|, |x_i - y_i - (x_j -
+y_j)| \}$.
