@@ -17,18 +17,18 @@ denotar~$\{1, \dots, n\}$ por conveniencia) obtenemos que
 \begin{align}
   \label{eq:decomposition}
   &\max_{i, j \in [n]} |x_i - x_j| + |y_i - y_j| \nonumber \\
-  &= \max_{i, j \in [n]} \max \{|a_i - a_j|, |b_i - b_j| \} & \text{by~\ref{eq:chebyshev-trans},} \nonumber \\
+  &= \max_{i, j \in [n]} \max \{|a_i - a_j|, |b_i - b_j| \} & \text{by~\eqref{eq:chebyshev-trans},} \nonumber \\
   &= \max \{ \max_{i, j \in [n]} |a_i - a_j|, \max_{i, j \in [n]} |b_i - b_j| \} \nonumber \\
   &= \max \{ \max_{i \in [n]} a_i - \min_{j \in [n]} a_j, \max_{i \in [n]} b_i - \min_{j \in [n]} b_j \}.
 \end{align}
 
-Crucialmente, todos los términos del lado derecho de~\ref{eq:decomposition} pueden ser calculados
+Crucialmente, todos los términos del lado derecho de~\eqref{eq:decomposition} pueden ser calculados
 en~$O(n)$ pasos.
 
-\textit{Ejercicio}: Demuestra~\ref{eq:chebyshev-trans}. Es suficiente probar
+\textit{Ejercicio}: Demuestra~\eqref{eq:chebyshev-trans}. Es suficiente probar
 que~$|x| + |y| = \max \{|x + y|, |x - y|\}$ para todo~$x, y \in \mathbb{R}$.
 
-\textit{Solo para interesados.} Este problema no asume conocimientos previos. La ecuación~\ref{eq:chebyshev-trans}
+\textit{Solo para interesados.} Este problema no asume conocimientos previos. La ecuación~\eqref{eq:chebyshev-trans}
 convierte la distancia de Manhattan entre los puntos~$(x_i, y_i)$ y~$(x_j, y_j)$ en
 la distancia de Chebyshev entre los puntos~$(x_i + y_i, x_i - y_i)$
 y~$(x_j + y_j, x_j - y_j)$, la cual puede ser usada para representar el número de
