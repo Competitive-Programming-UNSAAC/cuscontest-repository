@@ -1,0 +1,48 @@
+% Command to problem header section
+% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
+\problemText{Empacando}{Entrada estándar}{Salida estándar}{1 segundo}{}{Jared
+  León}{FFFFFF}
+
+Justino se refina y se va del país! El problema es que ahora debe decidir qué objetos
+llevar. Él tiene~$n$ objetos (no más de 17). El objeto~$i$ tiene un valor de~$v_i$
+soles y a Justino le cuesta~$c_i$ soles transportarlo.
+
+Dada una selección de objetos (posiblemente ninguno), sea~$x$ la suma de los valores
+de tales objetos, y sea~$y$ la suma de sus costos de transporte. Justino quiere
+maximizar~$x - y$. Ayúdale a seleccionar sus objetos.
+
+% Command to input text section
+\inputText
+
+La primera línea contiene un entero~$t$ ($1 \leq t \leq 100$) indicando el número de
+casos. La primera línea de cada caso contiene un único entero~$n$
+($1 \leq n \leq 17$). La siguiente línea contiene~$n$ enteros separados por un espacio, los
+valores de los objetos~$v_i$ ($0 \leq v_i \leq 10^4$). La siguiente línea
+contiene~$n$ enteros separados por un espacio, los costos de transporte de cada
+objeto~$c_i$ ($1 \leq c_i \leq 10^4$).
+
+% Command to output text section
+\outputText
+
+Para cada caso, imprime el máximo valor de~$x - y$ en una única línea.
+
+% Command to examples section
+\exampleCases
+
+% Create a table with some examples of input and output cases
+% Parameters {Example case filepath}
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{template/Empacando/in/1.in}
+    }{%%OUTPUT
+        \caseFile{template/Empacando/out/1.out}
+    }%%END-OUTPUT
+\end{example}
+
+% Command to explanation section, If you need to clarify anything from the example cases
+\explanationText
+
+En el primer caso, tomar todos los objetos produce un valor de~$11 = 3 + 4 + 4$ soles
+y un costo de transporte de~$11 = 2 + 6 + 3$ soles. Por otro lado, tomar el primer y
+último objeto produce un valor de~$7$ y un costo de transporte de~$5$. Esta es la
+mejor opción.
