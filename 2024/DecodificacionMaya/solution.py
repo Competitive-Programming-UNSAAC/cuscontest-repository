@@ -2,6 +2,7 @@
 
 import sys
 
+MAYAN_NUMBER_ONE = '*'
 MAYAN_NUMBER_ZERO = '<=>'
 MAYAN_NUMBER_FIVE = '---'
 
@@ -12,6 +13,7 @@ def decode(mayan_number: list[list[str]]) -> int:
             return 0
         if symbol == MAYAN_NUMBER_FIVE:
             return 5
+        assert set(symbol) == set(MAYAN_NUMBER_ONE), f'Invalid symbol: {symbol}'
         return len(symbol)  # Assume that symbol is full of ones "*", therefore its value is equal to the length of symbol
 
     def decode_level(level: list[str]) -> int:
@@ -35,7 +37,6 @@ def main() -> None:
         else:
             level.append(line.strip())
     mayan_number.append(level)
-
     print(decode(mayan_number))
 
     
