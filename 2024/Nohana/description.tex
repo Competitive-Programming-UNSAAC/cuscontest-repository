@@ -2,7 +2,11 @@
 % Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
 \problemText{Nohana}{Entrada estándar}{Salida estándar}{1 segundos}{}{Jhamsid Romero}{FF0000}
 
-Nohana es una chica que le gusta estudiar y descifrar misterios en la vida. Pues su mismo nombre, Nohana, tiene un significado en Bara, que es un país muy lejos de aquí. Nohana decidió volar hacía Bara. Estaba aburrida pues el viaje era demasiado largo y no era vuelo directo. Ella miró la escala, partía de una ciudad $S_1$ hacía la ciudad $S_2$. Así que para matar el tiempo decidió hallar la cantidad de subcadenas que había en los dos nombres. Luego de contrar la cantidad de subcadenas. Otra vez se aburrió, así que Nohara decidió aumentar la dificultad, y ella se propone hallar la cantidad de veces que una subcadena de $S_1$ es lexicográficamente mayor a una subcadena de $S_2$.
+Nohana es una chica a la que le gusta estudiar y descifrar misterios en la vida. Su nombre, Nohana, tiene un significado especial en Bara, su país natal, un lugar muy lejano.\\
+
+Un día, Nohana decidió volar a Bara. Durante el viaje, se sintió aburrida porque era demasiado largo y no era un vuelo directo. Para pasar el tiempo, observó su itinerario, que incluía una escala desde la ciudad $S_1$ a la ciudad $S_2$, y decidió calcular la cantidad de subcadenas en los nombres de ambas ciudades.\\
+
+Después de contar todas las subcadenas, Nohana se aburrió nuevamente y decidió aumentar la dificultad. Ahora se ha propuesto encontrar la cantidad total de veces que una subcadena de $S_1$ es lexicográficamente mayor que una subcadena de $S_2$. ¿Puedes ayudar a Nohana con este problema?
 
 % Command to input text section
 \inputText
@@ -12,7 +16,7 @@ En la primera línea contiene dos palabras $S_1$ y $S_2$ $(1 \le |S_1|,|S_2| \le
 % Command to output text section
 \outputText
 
-En una sola línea imprima la respuesta.
+Para cada caso, imprima un número entero como salida, que representa la cantidad total de veces que una subcadena de $S_1$ es lexicográficamente mayor que una subcadena de $S_2$..
 
 % Command to examples section
 \exampleCases
@@ -21,13 +25,23 @@ En una sola línea imprima la respuesta.
 % Parameters {Example case filepath}
 \begin{example}
     \exmp{%%INPUT
-        \caseFile{template/CombinacionDeLaCerradura/in/1.in}
+        \caseFile{2024/Nohana/in/1.in}
     }{%%OUTPUT
-        \caseFile{template/CombinacionDeLaCerradura/out/1.out}
+        \caseFile{2024/Nohana/out/1.out}
     }%%END-OUTPUT
+
+    \exmp{%%INPUT
+        \caseFile{2024/Nohana/in/2.in}
+    }{
+        \caseFile{2024/Nohana/in/2.out}
+    } %% END-OUTPUT
+
+    
 \end{example}
 
 % Command to explanation section, If you need to clarify anything from the example cases
 \explanationText
 
-Pending...
+Una subcadena es una secuencia contigua de caracteres que aparece en el mismo orden dentro de una cadena más grande.\\
+
+Una cadena es lexicográficamente más grande que otra si aparece después en el orden del diccionario (alfabético), es decir, cuando comparas dos cadenas, una es mayor si tiene un carácter con mayor valor ASCII en la primera posición en que difieren.
