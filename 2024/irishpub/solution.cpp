@@ -1,12 +1,9 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-
 
 bool isvowel(char ch) { 
 	return ((ch == 'a') || (ch == 'e') ||(ch == 'i') ||(ch == 'o') || (ch == 'u') || (ch == 'y')); 
 }
-
 
 string to_lower(string line){
 	string cadena = "";
@@ -33,7 +30,6 @@ pair < string, string > format_string(string line){
 	}
 	return (make_pair(cadenas[0], cadenas[1]));
 }
-
 
 int main(){
 	srand(42);
