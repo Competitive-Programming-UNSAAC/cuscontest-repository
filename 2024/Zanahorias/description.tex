@@ -1,6 +1,15 @@
 \problemText{Zanahorias}{Entrada estándar}{Salida estándar}{2 segundos}{}{Dennis Huillca}{FFFFFF}
 
-John trabaja en una empresa llamada "VERDURAS-Tech", y hoy, estaba tan cansado después del trabajo que se quedó dormido en cuanto llegó a casa.Desafortunadamente, incluso en su sueño, no pudo olvidarse de su trabajo. En su sueño, le pidieron que ayudara a una empresa productora de zanahorias con la siguiente pregunta: ¿cuántas zanahorias crecen en un segmento de línea que conecta dos zanahorias dadas? Los extremos del segmento (es decir, las dos zanahorias dadas) no deben incluirse.\\
+John trabaja en una empresa llamada ``VERDURAS-Tech'' y hoy, después de un largo día de trabajo, estaba tan cansado que se quedó dormido en cuanto llegó a casa.
+
+Desafortunadamente, ni siquiera en sueños pudo olvidarse de su trabajo. 
+En su sueño, le pidieron que ayudara a una empresa productora de zanahorias con la siguiente pregunta: 
+¿cuántas zanahorias crecen en un segmento de línea que conecta dos zanahorias dadas?
+
+Desafortunadamente, ni siquiera en sueños pudo olvidarse de su trabajo.
+En su sueño, le pidieron que ayudara a una empresa productora de zanahorias con la siguiente pregunta: 
+¿cuántas zanahorias crecen en un segmento de línea que conecta dos zanahorias dadas excluyendo los extremos del segmento? 
+Los extremos del segmento (es decir, las dos zanahorias dadas) no deben incluirse.\\
 
 En su sueño, los representantes de la empresa (gente que tienen zanahorias en lugar de cabezas) dijeron que todas las zanahorias crecen en un plano cartesiano infinito y hay exactamente una zanahoria en cada punto con coordenadas enteras. Debes ayudar al cansado John a resolver este problema.\\
 
@@ -16,13 +25,6 @@ Las siguientes $n$ líneas contienen cuatro enteros (por línea) $x_1$, $y_1$, $
 
 Para cada caso de prueba, imprimir el número de zanahorias que se encuentran estrictamente en el segmento de línea que conecta estas dos zanahorias.
 
-% Includes the figures, with the necessary information about your problem
-\begin{figure}[h]
-  \centering
-  \caption{ejemplo para el caso: 1 1 5 5}
-  \includegraphics[scale=.5]{2024/Zanahorias/images/zanahorias.png}
-\end{figure}
-
 % Command to examples section
 \exampleCases
 
@@ -30,8 +32,17 @@ Para cada caso de prueba, imprimir el número de zanahorias que se encuentran es
 % Parameters {Example case filepath}
 \begin{example}
     \exmp{%%INPUT
-        \caseFile{2024/Zanahorias/in/example.in}
+        \caseFile{2024/Zanahorias/in/1.in}
     }{%%OUTPUT
-        \caseFile{2024/Zanahorias/out/example.out}
+        \caseFile{2024/Zanahorias/out/1.out}
     }%%END-OUTPUT
 \end{example}
+
+\explanationText
+
+\textbf{En el primer ejemplo:} Existen $3$ zahanorias ente las zanahorias localizadas en $(1,1)$ y $(5, 5)$
+
+\begin{figure}[h]
+    \centering
+    \input{2024/Zanahorias/images/graph}
+\end{figure}
