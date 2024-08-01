@@ -2,8 +2,6 @@
 
 using namespace std;
 
-#define db(v) for (auto x: v) cout<<x<<"\n";
-
 int main(){
     int tt; cin>>tt;
     while(tt--){
