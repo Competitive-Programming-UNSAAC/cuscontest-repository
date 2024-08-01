@@ -1,22 +1,23 @@
 % Command to problem header section
 % Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
-\problemText{Mejor Trayecto En Cusco}{Entrada estándar}{Salida estándar}{2 segundos}{}{Edu Sánchez}{FFFFFF}
+\problemText{Mejor Trayecto}{Entrada estándar}{Salida estándar}{2 segundos}{}{Edu Sánchez}{FFFFFF}
 
-Tus amigos extranjeros están visitando Cusco y quieren encontrar el trayecto más largo de la ciudad para visitar exactamente 4 lugares túristicos sin repetir ninguno (recorriendo exactamente 3 caminos). Ayúdales con esta tarea.
-
+Cusco es una ciudad turística llena de historia y belleza, con una gran cantidad de lugares para visitar. Para facilitar la planificación de los turistas, la ciudad dispone de un mapa detallado que muestra cómo recorrer la principales 4 atracciones.
 
 % Includes the figures, with the necessary information about your problem
 \begin{figure}[h]
     \centering
     \input{template/MejorTrayectoEnCusco/images/graph}
+    \captionsetup{labelformat=empty}
     \caption{Lugares turísticos y distancias.}
 \end{figure}
 
+Tus amigos extranjeros están visitando Cusco y quieren encontrar el trayecto más largo de la ciudad para visitar exactamente 4 lugares túristicos sin repetir ninguno, recorriendo exactamente tres caminos. ¿Puedes ayudarlos con esta tarea?
 
 % Command to input text section
 \inputText
 
-La primera línea contiene un número entero $T (1 \leq T \leq 100)$,  que indica el número de casos de prueba.
+La primera línea contiene un número entero $t (1 \leq t \leq 1000)$,  que indica el número de casos de prueba.
 
 Cada caso de prueba incluye 6 líneas, las distancias entre cada par de lugares. Cada línea incluye tres números enteros $a, b$ y $d$, $(1 \leq a < b \leq 4, 1 \leq d \leq 1000)$, los dos primeros números identifican el número del lugar turístico y el tercer número la distancia entre los dos lugares.
 
