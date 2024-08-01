@@ -1,0 +1,149 @@
+\problemText{Decodificaci\'on Maya}{Entrada estándar}{Salida estándar}{3 segundos}{}{Berthin Torres}{FFFFFF}
+
+A lo largo de la historia, muchas civilizaciones representaron sus sistemas de numeraci\'on usando diversos simbolismos. Una de estas culturas fue la civilización Maya, que desarrolló un sistema de numeración vigesimal (base 20) utilizando tres símbolos básicos:
+
+\begin{itemize}
+    \item Un punto (\texttt{*}) para representar el número 1.
+    \item Una barra (\texttt{---}) para representar el número 5.
+    \item Un símbolo de concha (\texttt{<=>}) para representar el número 0.
+\end{itemize}
+
+En este sistema, los números se escriben en forma vertical de abajo hacia arriba, donde la posición inferior representa las unidades ($20^0$), la siguiente hacia arriba representa los múltiplos de 20 ($20^1$), la siguiente los múltiplos de 400 ($20^2$), y así sucesivamente.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|c|c|}
+    \hline
+    \textbf{Número} & \textbf{Representación Maya} \\
+    \hline
+    0 & \texttt{<=>} \\
+    \hline
+    1 & \texttt{*} \\
+    \hline
+    2 & \texttt{**} \\
+    \hline
+    3 & \texttt{***} \\
+    \hline
+    4 & \texttt{****} \\
+    \hline
+    5 & \texttt{---} \\
+    \hline
+    6 & \texttt{*} \\
+      & \texttt{---} \\
+    \hline
+    7 & \texttt{**} \\
+      & \texttt{---} \\
+    \hline
+    8 & \texttt{***} \\
+      & \texttt{---} \\
+    \hline
+    9 & \texttt{****} \\
+      & \texttt{---} \\
+    \hline
+    10 & \texttt{---} \\
+       & \texttt{---} \\
+    \hline
+    11 & \texttt{*} \\
+       & \texttt{---} \\
+       & \texttt{---} \\
+    \hline
+    12 & \texttt{**} \\
+       & \texttt{---} \\
+       & \texttt{---} \\
+    \hline
+    13 & \texttt{***} \\
+       & \texttt{---} \\
+       & \texttt{---} \\
+    \hline
+\end{tabular}
+\captionsetup{labelformat=empty}
+\caption{Por ejemplo, estos son los primeros 14 n\'umeros Mayas}
+\end{table}
+
+Tu tarea es escribir un programa para decodificar los n\'umeros Maya.
+
+\inputText
+
+La entrada contiene un \'unico caso de prueba que es la representaci\'on de un n\'umero Maya. Cada unidad Maya esta separada por una linea en blanco. Puedes asumir que todos los casos son v\'alidos.
+
+\outputText
+
+Como salida, imprime en pantalla un \'unico n\'umero entero (base 10) que vendr\'ia a ser la representaci\'on del n\'umero Maya. Para simplificar tu tarea considera que el m\'aximo n\'umero Maya en base 10 es menor o igual a $10^9$.
+
+\exampleCases
+
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2024/DecodificacionMaya/in/1.in}
+    }{%%OUTPUT
+        \caseFile{2024/DecodificacionMaya/out/1.out}
+    }%%END-OUTPUT
+    \exmp{%%INPUT
+        \caseFile{2024/DecodificacionMaya/in/2.in}
+    }{%%OUTPUT
+        \caseFile{2024/DecodificacionMaya/out/2.out}
+    }%%END-OUTPUT
+    \exmp{%%INPUT
+        \caseFile{2024/DecodificacionMaya/in/3.in}
+    }{%%OUTPUT
+        \caseFile{2024/DecodificacionMaya/out/3.out}
+    }%%END-OUTPUT
+\end{example}
+
+\explanationText
+
+\textbf{En el primer ejemplo:}
+
+\[
+\begin{array}{c}
+** \\
+\\
+** \\
+\end{array}
+\]
+
+se interpreta de la siguiente manera:
+
+\begin{itemize}
+    \item \textbf{Posición Inferior:} Cada \texttt{*} representa el número 1. Por lo tanto, \texttt{**} en esta posición es igual a 2 en decimal.
+    \item \textbf{Siguiente Posición Superior:} En esta posición, también se tiene \texttt{**}, que es igual a 2 en decimal, pero este valor se multiplica por 20 (ya que es la siguiente potencia de 20). Entonces, esta posición representa $2 \times 20 = 40$.
+\end{itemize}
+
+Para obtener el valor decimal total, sumamos ambos valores:
+
+\[
+2 + 40 = 42
+\]
+
+Por lo tanto, la representación Maya equivale a 42 en decimal.\\
+
+\textbf{En el segundo ejemplo:}
+
+\[
+\begin{array}{c}
+** \\
+\\
+*
+\\
+\\
+* \\
+\texttt{---} \\
+\end{array}
+\]
+
+se interpreta de la siguiente manera:
+
+\begin{itemize}
+    \item \textbf{Posición Inferior:} La fila inferior contiene \texttt{---} y \texttt{*}, que representa el número 6 en decimal.
+    \item \textbf{Siguiente Posición Superior:} La fila del medio contiene \texttt{*}, que representa el número 1 en decimal. Esta posición se multiplica por 20 (la siguiente potencia de 20). Entonces, esta posición representa $1 \times 20 = 20$.
+    \item \textbf{Posición Superior:} La fila superior contiene \texttt{**}, que representa el número 2 en decimal. Esta posición se multiplica por $20^2$ (la siguiente potencia de 20). Entonces, esta posición representa 
+    $2 \times 400 = 800$.
+\end{itemize}
+
+Para obtener el valor decimal total, sumamos los valores de cada posición:
+
+\[
+6 + 20 + 800 = 826
+\]
+
+Por lo tanto, la representación Maya equivale a 826 en decimal.
