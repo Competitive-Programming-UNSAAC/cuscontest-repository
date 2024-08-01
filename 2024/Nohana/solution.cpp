@@ -3,24 +3,29 @@
 using namespace std;
 
 int main(){
-    int tt; cin>>tt;
-    while(tt--){
-        string s1, s2; cin>>s1>>s2;
-        int a = s1.length();
-        int b = s2.length();
-        vector<string> sb;
-        for (int i = 0; i < b; i++) for (int j = i; j< b; j++){
-            sb.push_back(s2.substr(i,j-i+1));
+    int t; 
+    cin >> t;
+    for (int test = 0; test < t; test++){
+        string s1, s2; 
+        cin >> s1 >> s2;
+        int len_s1 = s1.length();
+        int len_s2 = s2.length();
+        vector<string> array_s2;
+        for (int i = 0; i < len_s2; i++){
+        	for (int j = i; j < len_s2; j++){
+        		array_s2.push_back(s2.substr(i, j - i + 1));
+        	}
         }
-        sort(sb.begin(), sb.end());
-        //db(sb);
+        sort(array_s2.begin(), array_s2.end());
         int ans = 0;
-        for (int i = 0; i < a; i++) for (int j = i; j< a; j++){
-        	string element = s1.substr(i, j-i+1);
-        	int pos = lower_bound(sb.begin(),sb.end(), element) - sb.begin();
-        	ans += pos;
+        for (int i = 0; i < len_s1; i++){
+        	for (int j = i; j < len_s1; j++){
+        		string element = s1.substr(i, j - i + 1);
+	        	int pos = lower_bound(array_s2.begin(), array_s2.end(), element) - array_s2.begin();
+	        	ans += pos;
+        	}
         }
-        cout<<ans<<endl;    
+        cout << ans << '\n';    
     }
     
 }
