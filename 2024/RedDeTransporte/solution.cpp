@@ -30,7 +30,7 @@ void join(int x, int y){
 	parent[Y] = X;
 }
 
-bool isSame(int x, int y){
+bool isSameComponent(int x, int y){
 	if(find(x) == find(y)) return 1;
 	else return 0;
 }
@@ -44,12 +44,12 @@ double dist(double x1, double y1, double x2, double y2){
 }
 
 int main(){
-	int T;
-	cin>>T;
+	int t;
+	cin >> t;
 
-	while(T--){
+	while(t--){
 		int C, A;
-		cin>>C>>A;
+		cin >> C >> A;
 
 		double X[A], Y[A];
 		for(int i = 0; i < A; i++) cin>>X[i]>>Y[i];
@@ -71,7 +71,7 @@ int main(){
 		for(int i = 0; i < graph.size(); i++){
 			if(components == C + 1) break;
 			else{
-				if(!isSame(graph[i].u, graph[i].v)){
+				if(!isSameComponent(graph[i].u, graph[i].v)){
 					join(graph[i].u, graph[i].v);
 					ans = max(ans, graph[i].w);
 					components--;
