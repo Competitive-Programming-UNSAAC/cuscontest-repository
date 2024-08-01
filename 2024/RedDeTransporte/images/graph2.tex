@@ -1,0 +1,12 @@
+\begin{tikzpicture}[thick,scale=0.5, every node/.style={scale=0.5}]
+    \begin{scope}
+        \node[draw] (A) at (2.5,5) {(100,200)};
+        \node[draw] (B) at (15.0,15) {(600,600)};
+        \node[draw] (C) at (20.0,3.75) {(800,150)};
+    \end{scope}
+
+    \begin{scope}
+        \draw (A) -- node[midway, right] {dist = 640.31} (B);
+        \draw (B) -- node[midway, right] {dist = 492.44} (C);
+    \end{scope}
+\end{tikzpicture}
