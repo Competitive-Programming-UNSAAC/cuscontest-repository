@@ -31,7 +31,7 @@ bool isSameComponent(int x, int y){
 }
 
 bool order(Edge e1, Edge e2){
-	return e1.A < e2.A;
+	return e1.w < e2.w;
 }
 
 double dist(double x1, double y1, double x2, double y2){
@@ -47,7 +47,7 @@ int main(){
 		cin >> C >> A;
 
 		double X[A], Y[A];
-		for(int i = 0; i < A; i++) cin>>X[i]>>Y[i];
+		for(int i = 0; i < A; i++) cin >> X[i] >> Y[i];
 
 		vector<Edge> graph;
 		for(int i = 0; i < A; i++){
