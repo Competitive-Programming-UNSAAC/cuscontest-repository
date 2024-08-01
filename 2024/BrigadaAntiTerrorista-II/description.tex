@@ -26,7 +26,6 @@ los puntos~$(x_1, y_1), \dots, (x_n, y_n)$ en~$\mathbb{Z}^2$. La distancia entre
 edificios~$(x_i, y_i)$ y~$(x_j, y_j)$ es~$|x_i - x_j| + |y_i - y_j|$. Tu trabajo es
 encontrar la máxima distancia entre cualquier par de edificios.
 
-
 % Command to input text section
 \inputText
 
@@ -59,6 +58,11 @@ edificios que podrían sufrir el ataque.
 % Command to explanation section, If you need to clarify anything from the example cases
 \explanationText
 
-Una ayuda: observa
-que~$|x_i - x_j| + |y_i - y_j| = \max \{|x_i + y_i - (x_j + y_j)|, |x_i - y_i - (x_j -
-y_j)| \}$.
+En el primer ejemplo, la distancia entre los edificios~$(2, -1)$ y~$(-1, 1)$
+es~$|2 - (- 1)| + |-1 - 1| = 5$. No hay un par de edificios a mayor distancia.
+
+En el tercer ejemplo, la distancia entre los edificios~$(3, 3)$ y~$(4, 6)$
+es~$|3 - 4| + |3 - 6| = 4$, la máxima posible.
+
+\textbf{Una ayuda, observe que~$|x_i - x_j| + |y_i - y_j| = \max \{|x_i + y_i - (x_j + y_j)|, |x_i - y_i - (x_j -
+y_j)| \}$.}
