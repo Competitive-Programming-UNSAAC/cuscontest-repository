@@ -1,0 +1,63 @@
+% Command to problem header section
+% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
+\problemText{Brigada Anti-Terrorista (Fácil)}{Entrada estándar}{Salida estándar}{1
+  segundo}{}{Jared León}{FFFFFF}
+
+Es el año 2050, ``Awan Afuqya'' (el grupo terrorista más grande del mundo) llegó a
+Cusco y planea colocar una bomba en algún edificio importante. La Brigada
+Anti-Terrorista recibió una pista sobre los edificios que podrían ser
+atacados. Desafortunadamente, la brigada solo puede monitorear uno de los edificios y
+debe seguir las órdenes de Ebbhstein Haadid Nahkil Muhssef, el Presidente de Perú,
+sobre cuál edificio debe ser monitoreado.
+
+Lo mejor que se puede hacer en esta situación es estar preparados. En este sentido,
+la brigada necesita conocer la máxima distancia entre cualquier par de edificios
+importantes (aquellos que podrían ser atacados) para estimar el tiempo de
+respuesta. Además, cualquier par de calles de Cusco son paralelas o perpendiculares,
+y estas están bien distribuidas por toda la ciudad. Esto implica que la distancia de
+un edificio a otro es la suma de las diferencias absolutas de sus respectivas
+coordenadas Cartesianas.
+
+Más precisamente, los~$n$ edificios que podrían ser atacados están representados por
+los puntos~$(x_1, y_1), \dots, (x_n, y_n)$ en~$\mathbb{Z}^2$. La distancia entre dos
+edificios~$(x_i, y_i)$ y~$(x_j, y_j)$ es~$|x_i - x_j| + |y_i - y_j|$. Tu trabajo es
+encontrar la máxima distancia entre cualquier par de edificios.
+
+
+% Command to input text section
+\inputText
+
+La primera línea de la entrada contiene un entero~$t$ ($1 \leq t \leq 100$), que indica el
+número de casos de prueba. Para cada caso, la primera línea contiene un único
+entero~$n$ ($1 \leq n \leq 100$), que representa el número de edificios que podrían ser
+atacados. A continuación, hay~$n$ líneas, cada una de las cuales contiene un par de
+enteros separados por un espacio, $x_i$ y $y_i$ ($|x_i|, |y_i| \leq 10^8$), la posición
+de cada edificio que podría ser atacado.
+
+% Command to output text section
+\outputText
+
+Para cada caso, imprime en una línea la máxima distancia entre cualquier par de
+edificios que podrían sufrir el ataque.
+
+% Command to examples section
+\exampleCases
+
+% Create a table with some examples of input and output cases
+% Parameters {Example case filepath}
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2024/BrigadaAntiTerrorista-I/in/1.in}
+    }{%%OUTPUT
+        \caseFile{2024/BrigadaAntiTerrorista-I/out/1.out}
+    }%%END-OUTPUT
+\end{example}
+
+% Command to explanation section, If you need to clarify anything from the example cases
+\explanationText
+
+En el primer ejemplo, la distancia entre los edificios~$(2, -1)$ y~$(-1, 1)$
+es~$|2 - (- 1)| + |-1 - 1| = 5$. No hay un par de edificios a mayor distancia.
+
+En el tercer ejemplo, la distancia entre los edificios~$(3, 3)$ y~$(4, 6)$
+es~$|3 - 4| + |3 - 6| = 4$, la máxima posible.

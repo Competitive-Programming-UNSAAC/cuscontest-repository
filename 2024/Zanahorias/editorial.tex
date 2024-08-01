@@ -1,1 +1,73 @@
-pending
+% Command to editorial header section
+% Parameters {Knowledge(s) required to solve the problem}
+\editorialText{Geometría, Matemáticas, Teoría de Números}
+
+\section{Método 1: Iteración a Través de Puntos de la Cuadrícula}
+
+Dado el problema, es posible iterar a través de todos los puntos de la cuadrícula (puntos con coordenadas enteras) que se encuentran dentro de un rectángulo definido por las esquinas $(\min(x1, x2), \min(y1, y2))$ y $(\max(x1, x2), \max(y1, y2))$. Luego, se puede verificar si estos puntos están sobre el segmento de línea dado entre los dos puntos. Esta verificación se puede realizar utilizando el \textbf{producto cruzado de vectores}.
+
+\textbf{Pasos del Método:}
+\begin{enumerate}
+    \item \textbf{Definición del Rectángulo:} Calcula las esquinas del rectángulo que contiene ambos puntos:
+    \begin{itemize}
+        \item Esquinas: $(\min(x1, x2), \min(y1, y2))$ y $(\max(x1, x2), \max(y1, y2))$.
+    \end{itemize}
+    
+    \item \textbf{Iteración sobre el Rectángulo:} Recorre todos los puntos de la cuadrícula dentro del rectángulo definido.
+    
+    \item \textbf{Verificación del Segmento de Línea:} Utiliza el \textbf{producto cruzado de vectores} para determinar si un punto $(x, y)$ está sobre el segmento de línea:
+    \[
+    (x2 - x1) \times (y - y1) = (y2 - y1) \times (x - x1)
+    \]
+    Si la ecuación se cumple, el punto está en la línea.
+
+    \item \textbf{Complejidad:} $O(n \times m)$, donde $n$ y $m$ son las diferencias de coordenadas entre los puntos extremos.
+\end{enumerate}
+
+\section{Método 2: Uso del Máximo Común Divisor (GCD)}
+
+Este método es más elegante y eficiente:
+
+\textbf{Pasos del Método:}
+\begin{enumerate}
+    \item \textbf{Calcular las Diferencias de Coordenadas:} Calcula las diferencias absolutas entre las coordenadas:
+    \[
+    \Delta x = \text{abs}(x2 - x1)
+    \]
+    \[
+    \Delta y = \text{abs}(y2 - y1)
+    \]
+    
+    \item \textbf{Calcular el GCD:} Usa el máximo común divisor de $\Delta x$ y $\Delta y$:
+    \[
+    g = \text{gcd}(\Delta x, \Delta y)
+    \]
+    
+    \item \textbf{Determinar Puntos de la Cuadrícula en el Segmento:} Los puntos de la cuadrícula que yacen sobre el segmento son $g - 1$, ya que $g$ representa el número de divisiones uniformes posibles en la línea, incluyendo los puntos extremos.
+    
+    \item \textbf{Razón Detrás del GCD:} El GCD se utiliza porque determina el número de divisiones uniformes de la línea segmentada entre dos puntos en un espacio discreto. Visualmente, si conectamos los puntos $(x1, y1)$ y $(x2, y2)$ con una línea recta, la línea se cruzará con la cuadrícula en intervalos regulares. El GCD de $\Delta x$ y $\Delta y$ nos dice cuántos de esos intervalos hay.
+    
+    \item \textbf{Complejidad:} Este enfoque es muy eficiente con una complejidad de tiempo constante $O(1)$ para cada par de puntos, ya que solo implica cálculos básicos.
+\end{enumerate}
+
+\textbf{Ejemplo de Aplicación:}
+
+\textbf{Entrada:}
+\begin{itemize}
+    \item $(x1, y1) = (2, 3)$
+    \item $(x2, y2) = (8, 7)$
+\end{itemize}
+
+\textbf{Cálculo:}
+\begin{itemize}
+    \item $\Delta x = \text{abs}(8 - 2) = 6$
+    \item $\Delta y = \text{abs}(7 - 3) = 4$
+    \item $g = \text{gcd}(6, 4) = 2$
+    \item Puntos en el segmento: $g - 1 = 1$
+\end{itemize}
+
+\textbf{Resultado:} Hay un punto de la cuadrícula estrictamente entre los dos puntos.
+
+% Command to code solution section
+% Parameters {Language}{Solution filepath}
+\code{C++}{2024/Zanahorias/solution.cpp}
