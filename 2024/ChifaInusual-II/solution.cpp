@@ -15,7 +15,7 @@ int power(int x, int y) {
   int potencia = 1;
   while (y) {
     if (y & 1) {
-      potencia = mul(ans, x);
+      potencia = mul(potencia, x);
     }
     x = mul(x, x);
     y >>= 1;
