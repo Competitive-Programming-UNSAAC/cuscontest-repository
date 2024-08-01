@@ -2,31 +2,27 @@
 % Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
 \problemText{Números de Serie}{Entrada estándar}{Salida estándar}{2 segundos}{}{Dennis Huillca}{FFFFFF}
 
-Roberto es un ávido coleccionista de guitarras, tanto que cada una de sus guitarras tiene un número de serie único. Él quiere buscar sus guitarras por número de serie rápidamente, así que decide ordenar la lista completa de la siguiente manera.
+Roberto es un ávido coleccionista de guitarras, tanto que cada una de ellas tiene un número de serie único. Él quiere buscar sus guitarras por número de serie rápidamente, así que decide ordenarlas de la siguiente manera.
 
-Cada número de serie consiste en letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Para saber si el número de serie A viene antes que el número de serie B, usa los siguientes pasos:
+Cada número de serie consiste en letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Para determinar si el número de serie $S_{A}$ viene antes que el número de serie $S_{B}$, usa los siguientes pasos:
 
 \begin{enumerate}
-    \item Si A y B tienen diferente longitud, el que tenga la longitud más corta viene primero.
-    \item De lo contrario, si \texttt{suma\_de\_digitos(A)} difiere de \texttt{suma\_de\_digitos(B)} (donde \texttt{suma\_de\_digitos(X)} devuelve la suma de todos los dígitos en la cadena X), el que tenga la suma más baja viene primero.
-    \item De lo contrario, compara alfabéticamente, donde los dígitos vienen antes que las letras.
+    \item Si $S_{A}$ y $S_{B}$ tienen longitudes diferentes, el que tenga la longitud más corta viene primero.
+    \item De lo contrario, si la suma de los dígitos de $S_{A}$ difiere de la suma de los dígitos de $S_{B}$, el que tenga la suma más baja viene primero
+    \item De lo contrario, se compara alfabéticamente, donde los dígitos vienen antes que las letras.
 \end{enumerate}
 
-Dado una secuencia de números de serie \texttt{serialNumbers}, imprime una secuencia ordenada de números de serie en orden ascendente y separados por un espacio.
+Dada una lista de los números de serie de todas las guitarras de Roberto, tu tarea es ayudarlo a ordenarlas siguiendo los criterios previamente descritos.
 
 \inputText
 
-La primera línea contiene un número entero \texttt{TestCases} $(1 \le \texttt{TestCases} \le 100)$, el número de casos de prueba.
-
-Para cada caso de prueba:
-
-La siguiente línea contiene un número entero $n$ $(1 \le n \le 50)$, el número de números de serie en la secuencia.
-
-Las siguientes $n$ líneas contienen cadenas de caracteres, cada una representando un número de serie. Cada número de serie contiene entre 1 y 50 caracteres y solo contiene letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Todos los números de serie son distintos.
+La primera línea de entrada contiene un número entero $t$ $(1 \le t \le 100)$, el número de casos de prueba.
+Para cada caso de prueba, la primera línea contiene un número entero $n$ $(1 \leq n \leq 50)$, que indica el número de guitarras que tiene Roberto.
+Seguido de $n$ líneas con los números de serie de cada guitarra. Cada número de serie contiene entre $1$ y $50$ caracteres, y solo contiene letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Garantizamos que todos los números de serie son distintos.
 
 \outputText
 
-Para cada caso de prueba, imprime una línea con los números de serie ordenados en orden ascendente y separados por un espacio.
+Para cada caso de prueba, imprime una línea con los números de serie ordenados según los criterios descritos previamente, separados por un espacio.
 
 \exampleCases
 

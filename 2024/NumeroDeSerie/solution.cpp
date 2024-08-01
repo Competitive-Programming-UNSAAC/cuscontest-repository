@@ -9,6 +9,7 @@ int sum_digits(string a) {
     }
     return sum;
 }
+
 bool cmp(string a, string b) {
     if (a.size() < b.size())
         return true;
@@ -31,6 +32,7 @@ int main() {
     size_t test_cases;
     size_t list_length;
     cin >> test_cases;
+
     while (test_cases--) {
         while (cin >> list_length) {
             auto list = vector<string>(list_length);
