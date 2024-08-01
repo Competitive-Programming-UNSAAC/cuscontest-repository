@@ -1,0 +1,44 @@
+% Command to editorial header section
+% Parameters {Knowledge(s) required to solve the problem}
+\editorialText{Matemáticas}
+
+Supongamos
+que~$|x_i - x_j| + |y_i - y_j| = \max \{|x_i + y_i - (x_j + y_j)|, |x_i - y_i - (x_j -
+y_j)| \}$, como se sugirió en el enunciado (este es el paso más difícil). Luego,
+\begin{equation}
+  \label{eq:chebyshev-trans}
+  |x_i - x_j| + |y_i - y_j| = \max \{|a_i - a_j|, |b_i - b_j| \},
+\end{equation}
+donde~$a_i \coloneqq x_i + y_i$ y~$b_i \coloneqq x_i - y_i$.
+
+Ahora, reescribiendo la respuesta al problema (usamos~$[n]$ para
+denotar~$\{1, \dots, n\}$ por conveniencia) obtenemos que
+
+\begin{align}
+  \label{eq:decomposition}
+  &\max_{i, j \in [n]} |x_i - x_j| + |y_i - y_j| \nonumber \\
+  &= \max_{i, j \in [n]} \max \{|a_i - a_j|, |b_i - b_j| \} & \text{by~\eqref{eq:chebyshev-trans},} \nonumber \\
+  &= \max \{ \max_{i, j \in [n]} |a_i - a_j|, \max_{i, j \in [n]} |b_i - b_j| \} \nonumber \\
+  &= \max \{ \max_{i \in [n]} a_i - \min_{j \in [n]} a_j, \max_{i \in [n]} b_i - \min_{j \in [n]} b_j \}.
+\end{align}
+
+Crucialmente, todos los términos del lado derecho de~\eqref{eq:decomposition} pueden ser calculados
+en~$O(n)$ pasos.
+
+\textit{Ejercicio}: Demuestra~\eqref{eq:chebyshev-trans}. Es suficiente probar
+que~$|x| + |y| = \max \{|x + y|, |x - y|\}$ para todo~$x, y \in \mathbb{R}$.
+
+\textit{Solo para interesados.} Este problema no asume conocimientos previos. La ecuación~\eqref{eq:chebyshev-trans}
+convierte la distancia de Manhattan entre los puntos~$(x_i, y_i)$ y~$(x_j, y_j)$ en
+la distancia de Chebyshev entre los puntos~$(x_i + y_i, x_i - y_i)$
+y~$(x_j + y_j, x_j - y_j)$, la cual puede ser usada para representar el número de
+movimientos en el que un rey puede llegar a una casilla en un tablero de ajedrez. La
+transformación~$\gamma: (x, y) \rightarrow (x + y, x - y)$ es bastante utilizada en problemas que
+involucran distancias de Manhattan. Tal vez quieras pensar en qué efecto
+tiene~$\gamma$ en el conjunto de puntos. Reescribir el problema en términos de
+matrices y visualizar los cambios puede ayudar a generar intuición sobre lo que está
+sucediendo.
+
+% Command to code solution section
+% Parameters {Language}{Solution filepath}
+\code{Python}{2024/BrigadaAntiTerrorista-II/solution.py}
