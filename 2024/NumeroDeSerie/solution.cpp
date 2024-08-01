@@ -1,17 +1,4 @@
-#include <algorithm>
-#include <cmath>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
-typedef long long ll;
-#include <limits>
-#include <memory>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 int sum_digits(string a) {
