@@ -1,0 +1,15 @@
+% Command to editorial header section
+% Parameters {Knowledge(s) required to solve the problem}
+\editorialText{Búsqueda binaria, string}
+
+Teniendo el string $S_1$ y $S_2$ podemos generar todas subcadenas de $S_2$ en un arreglo de strings y ordenarlo siendo la complejidad de $O(n^2 \cdot log(n))$ donde $n$ la longitud del string $S_2$.\\
+
+Ahora para cada subcadena de $S_1$ aplicamos una Búsqueda binaria en el arreglo ordenado de subcadenas de $S_2$ en función si un string es lexicográficamente mayor que otro string.\\
+
+Cada vez que halles la posición , puedes suponer que los elementos anteriores a esa posición es también menor lexicográficamente a la subcadena.\\
+
+Ahora la respuesta es la suma de la cantidad de subcadenas de $S_2$ que son menores a la subcadena $S_1$, para cada subcadena de $S_1$.
+
+% Command to code solution section
+% Parameters {Language}{Solution filepath}
+\code{C++}{2024/Nohana/solution.cpp}
