@@ -1,10 +1,5 @@
-#include<iostream>
-#include<cmath>
-#include<algorithm>
-#include<vector>
-#include<stdio.h>
+#include<bits/stdc++.h>
 #define MAX 505
-
 using namespace std;
 
 struct Edge{
@@ -84,3 +79,4 @@ int main(){
 
 	return 0;
 }
+
