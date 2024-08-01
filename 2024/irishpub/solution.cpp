@@ -9,29 +9,29 @@ bool isvowel(char ch) {
 
 
 string to_lower(string line){
-	string cad = "";
+	string cadena = "";
 	for(int i = 0; i < line.size(); i++){
-		cad = cad + (char)tolower(line[i]);
+		cadena = cadena + (char)tolower(line[i]);
 	}
-	return cad;
+	return cadena;
 }
 
 pair < string, string > format_string(string line){
-	vector < string > cads;
-	for(int i = 0;i < line.size();i++){
-		string cad = "";
+	vector < string > cadenas;
+	for(int i = 0; i < line.size(); i++){
+		string cadena = "";
 		while(i < line.size() && (line[i] != ' ')){
 			if(isvowel(line[i])){
 				i = i + 1;
 			} else {
-				cad = cad + line[i];
+				cadena = cadena + line[i];
 				i = i + 1;
 			}
 		}
-		sort(cad.begin(), cad.end());
-		cads.push_back(cad);
+		sort(cadena.begin(), cadena.end());
+		cadenas.push_back(cadena);
 	}
-	return (make_pair(cads[0], cads[1]));
+	return (make_pair(cadenas[0], cadenas[1]));
 }
 
 
