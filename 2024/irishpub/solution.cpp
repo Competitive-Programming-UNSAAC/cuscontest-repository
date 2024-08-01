@@ -59,12 +59,12 @@ int main(){
 	while(getline(cin,line)){
 		// split
 		pair < string, string > fline = format_string(line);
-		string cad1 = fline.first;
-		string cad2 = fline.second;
-		sort(cad1.begin(),cad1.end());
-		sort(cad2.begin(),cad2.end());
+		string cadena1 = fline.first;
+		string cadena2 = fline.second;
+		sort(cadena1.begin(),cadena1.end());
+		sort(cadena2.begin(),cadena2.end());
 		// get result
-		string key = cad1 + " " + cad2;
+		string key = cadena1 + " " + cadena2;
 		vector < string > match = Map[key];
 		cout << match[0];
 		int i = 1;
