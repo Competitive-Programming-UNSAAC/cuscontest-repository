@@ -1,0 +1,39 @@
+% Command to problem header section
+% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
+\problemText{Nohana}{Entrada estándar}{Salida estándar}{1 segundos}{}{Jhamsid Romero}{FF0000}
+
+Nohana es una chica a la que le gusta estudiar y descifrar misterios en la vida. Su nombre, Nohana, tiene un significado especial en Bara, su país natal, un lugar muy lejano.\\
+
+Un día, Nohana decidió volar a Bara. Durante el viaje, se sintió aburrida porque era demasiado largo y no era un vuelo directo. Para pasar el tiempo, observó su itinerario, que incluía una escala desde la ciudad $S_1$ a la ciudad $S_2$, y decidió calcular la cantidad de subcadenas en los nombres de ambas ciudades.\\
+
+Después de contar todas las subcadenas, Nohana se aburrió nuevamente y decidió aumentar la dificultad. Ahora se ha propuesto encontrar la cantidad total de veces que una subcadena de $S_1$ es lexicográficamente mayor que una subcadena de $S_2$. ¿Puedes ayudar a Nohana con este problema?
+
+% Command to input text section
+\inputText
+
+La primera línea de la entrada contendrá un número entero $t$ $(1 \le t \le 10)$, que representa el número de casos. A continuación, habrá $t$ líneas, cada una con dos palabras, $S_1$ y $S_2$  $(1 \le |S_1|,|S_2| \le 200)$, que representan la ciudad de origen y la ciudad de destino de la escala, respectivamente.
+
+% Command to output text section
+\outputText
+
+Para cada caso, imprima un número entero como salida, que representa la cantidad total de veces que una subcadena de $S_1$ es lexicográficamente mayor que una subcadena de $S_2$..
+
+% Command to examples section
+\exampleCases
+
+% Create a table with some examples of input and output cases
+% Parameters {Example case filepath}
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2024/Nohana/in/1.in}
+    }{%%OUTPUT
+        \caseFile{2024/Nohana/out/1.out}
+    }%%END-OUTPUT
+\end{example}
+
+% Command to explanation section, If you need to clarify anything from the example cases
+\explanationText
+
+Una subcadena es una secuencia contigua de caracteres que aparece en el mismo orden dentro de una cadena más grande. Ejemplo: ``c'', ``cus'' y ``usc'' son subcadenas de ``cusco'' asi como ``l'', ``li'' y ``lima''  son subcadenas de ``lima'' .\\
+
+Una cadena es lexicográficamente más grande que otra si aparece después en el orden del diccionario (alfabético), es decir, cuando comparas dos cadenas, una es mayor si tiene un carácter con mayor valor ASCII en la primera posición en que difieren. Ejemplo:  ``li'', ``lim'' y ``lima'' son  cadenas lexicográficamente más grande que  ``ba'' .
