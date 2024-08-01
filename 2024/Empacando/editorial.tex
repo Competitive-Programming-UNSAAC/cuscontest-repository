@@ -1,0 +1,18 @@
+% Command to editorial header section
+% Parameters {Knowledge(s) required to solve the problem}
+\editorialText{Greedy}
+
+Reescribiendo la solución al problema tenemos (usamos~$[n]$ para
+denotar~$\{1, \dots, n\}$ por conveniencia)
+
+\begin{equation*}
+  \max_{I \subseteq [n]} x - y = \max_{I \subseteq [n]} \sum_{i \in I} v_i - \sum_{i \in I} c_i = \max_{I \subseteq [n]} \sum_{i \in I} v_i - c_i.
+\end{equation*}
+
+Claramente un término de índice~$i$ contribuye positivamente a~$x - y$ si y solo
+si~$v_i - c_i > 0$. Por lo tanto, es siempre conveniente tomar objetos~$i$ cuyo valor
+es mayor al costo de su transporte, i.e.,~$v_i > c_i$.
+
+% Command to code solution section
+% Parameters {Language}{Solution filepath}
+\code{Python}{2024/Empacando/solution.py}
