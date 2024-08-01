@@ -1,44 +1,41 @@
-Tienes muchas guitarras, y cada guitarra tiene un número de serie único. Quieres poder buscar los números de serie rápidamente, así que decides ordenar la lista completa de la siguiente manera.
+% Command to problem header section
+% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
+\problemText{Números de Serie}{Entrada estándar}{Salida estándar}{2 segundos}{}{Dennis Huillca}{FFFFFF}
 
-Cada número de serie consiste en letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Para ver si el número de serie A viene antes que el número de serie B, usa los siguientes pasos:
+Roberto es un ávido coleccionista de guitarras, tanto que cada una de sus guitarras tiene un número de serie único. Él quiere buscar sus guitarras por número de serie rápidamente, así que decide ordenar la lista completa de la siguiente manera.
 
-   Si A y B tienen diferente longitud, el que tenga la longitud más corta viene primero.
-   De lo contrario, si sum_of_digits(A) difiere de sum_of_digits(B) (donde sum_of_digits(X) devuelve la suma de todos los dígitos en la cadena X), el que tenga la suma más baja viene primero.
-   De lo contrario, compáralos alfabéticamente, donde los dígitos vienen antes que las letras.
+Cada número de serie consiste en letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Para saber si el número de serie A viene antes que el número de serie B, usa los siguientes pasos:
 
-Dado una secuencia de N serialNumbers, imprime una secuencia ordenada de números de serie en orden ascendente y separadas por un espacio.
+\begin{enumerate}
+    \item Si A y B tienen diferente longitud, el que tenga la longitud más corta viene primero.
+    \item De lo contrario, si \texttt{suma\_de\_digitos(A)} difiere de \texttt{suma\_de\_digitos(B)} (donde \texttt{suma\_de\_digitos(X)} devuelve la suma de todos los dígitos en la cadena X), el que tenga la suma más baja viene primero.
+    \item De lo contrario, compara alfabéticamente, donde los dígitos vienen antes que las letras.
+\end{enumerate}
 
-RESTRICCIONES
-- TestCases es un número entre 1 y 100 inclusive.
-- N es un número entre 1 y 50 inclusive.
-- Cada elemento de serialNumbers contendrá entre 1 y 50 caracteres inclusive.
-- serialNumbers solo contendrá letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9').
-- Todos los elementos de serialNumbers serán distintos.
+Dado una secuencia de números de serie \texttt{serialNumbers}, imprime una secuencia ordenada de números de serie en orden ascendente y separados por un espacio.
 
-EJEMPLOS
+\inputText
 
-3
-5
-ABCD
-145C
-A
-A910
-Z321
-2
-Z19
-Z20
-2
-AA
-B
+La primera línea contiene un número entero \texttt{TestCases} $(1 \le \texttt{TestCases} \le 100)$, el número de casos de prueba.
 
-Imprime:
+Para cada caso de prueba:
 
-A ABCD Z321 145C A910
-Z20 Z19
-B AA
+La siguiente línea contiene un número entero $n$ $(1 \le n \le 50)$, el número de números de serie en la secuencia.
 
-Explicación:
+Las siguientes $n$ líneas contienen cadenas de caracteres, cada una representando un número de serie. Cada número de serie contiene entre 1 y 50 caracteres y solo contiene letras mayúsculas ('A' - 'Z') y dígitos ('0' - '9'). Todos los números de serie son distintos.
 
-Para el primer caso: el primer número de serie es "A" porque tiene la longitud más corta. Todos los demás tienen longitud 4, pero "ABCD" tiene la suma más baja. El siguiente más bajo es "Z321", y finalmente "A910" viene antes que "145C" porque "A" viene antes del "1" (ambos tienen suma = 10).
+\outputText
 
-Para el segundo caso: 1+9 > 2+0, así que "Z20" viene antes.
+Para cada caso de prueba, imprime una línea con los números de serie ordenados en orden ascendente y separados por un espacio.
+
+\exampleCases
+
+% Create a table with some examples of input and output cases
+% Parameters {Example case filepath}
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2024/NumeroDeSerie/in/example.in}
+    }{%%OUTPUT
+        \caseFile{2024/NumeroDeSerie/out/example.out}
+    }%%END-OUTPUT
+\end{example}
