@@ -79,13 +79,12 @@
 
 % Vars definition for document
 \def\cuscontestName{CUSCONTEST XXI}
-\def\cuscontestDate{Cusco, 02 de Agosto del 2024}
+\def\cuscontestDate{Cusco, 02 de Agosto de 2024}
 \def\description{description.tex}
 \def\editorial{editorial.tex}
 \def\folderpath{2024}
 % ADD HERE YOUR FOLDER PROBLEM USING COMMA SEPARATOR
-\def\folderlist{Civilizaciones}
-
+\def\folderlist{Zanahorias,DecodificacionMaya,NumeroDeSerie,Empacando,Nohana,BrigadaAntiTerrorista-I,BrigadaAntiTerrorista-II,RedDeTransporte,MejorTrayecto,irishpub,ChifaInusual-I,ChifaInusual-II,Civilizaciones}
 
 % New commands
 \renewcommand{\contestname}{
@@ -134,8 +133,8 @@
 \begin{document}
     % Provide problems and editorial
     \providetoggle{solution}
-    \settoggle{solution}{true}
-    %\settoggle{solution}{false}
+    %\settoggle{solution}{true}
+    \settoggle{solution}{false}
 
     % Layer page
     \input{layer.tex}
