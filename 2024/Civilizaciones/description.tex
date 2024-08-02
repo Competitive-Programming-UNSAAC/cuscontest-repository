@@ -1,5 +1,3 @@
-% Command to problem header section
-% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
 \problemText{Civilizaciones}{Entrada estándar}{Salida estándar}{1 segundos}{}{Isaac Campos}{FFFFFF}
 
 En las antiguas ciudades de la Vieja Europa, las civilizaciones han surgido y caído a lo largo de incontables eras de guerra y prosperidad. Así, cada una de ellas ha dejado atrás sus construcciones, que cuentan su historia.
@@ -10,7 +8,6 @@ Una asociación no gubernamental monitorea estos cambios anualmente y determina 
 
 Dada una civilización, tu tarea es determinar si, durante la era actual $x$, la era $y$ aún se considera ``viva'' $(x \geq y \geq 0)$. Para que una era se considere viva, el porcentaje de edificios de la era $y$ durante la era actual $x$ debe ser mayor o igual que un porcentaje umbral $P$.
 
-% Command to input text section
 \inputText
 
 \begin{itemize}
@@ -21,16 +18,12 @@ Dada una civilización, tu tarea es determinar si, durante la era actual $x$, la
     \item Cada consulta consta de 3 números enteros: la era $x$ $(0 \leq x \leq n)$, la era $y$ $(0 \leq y \leq x)$ y el porcentaje umbral $P$  $(1 \leq P \leq 100)$.
 \end{itemize}
 
-% Command to output text section
 \outputText
 
 Para cada consulta imprime en una nueva linea el carácter ``S'' o ``N'' dependiendo de si la civilización en la era $x$ sigue viva durante la era $y$, dado el porcentaje umbral $P$.
 
-% Command to examples section
 \exampleCases
 
-% Create a table with some examples of input and output cases
-% Parameters {Example case filepath}
 \begin{example}
     \exmp{%%INPUT
         \caseFile{2024/Civilizaciones/in/1.in}
@@ -38,5 +31,3 @@ Para cada consulta imprime en una nueva linea el carácter ``S'' o ``N'' dependi
         \caseFile{2024/Civilizaciones/out/1.out}
     }%%END-OUTPUT
 \end{example}
-
-% % Command to explanation section, If you need to clarify anything from the example cases
