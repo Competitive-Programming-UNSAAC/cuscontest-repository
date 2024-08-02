@@ -1,0 +1,42 @@
+% Command to problem header section
+% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
+\problemText{Civilizaciones}{Entrada estándar}{Salida estándar}{1 segundos}{}{Isaac Campos}{FFFFFF}
+
+En las antiguas ciudades de la Vieja Europa, las civilizaciones han surgido y caído a lo largo de incontables eras de guerra y prosperidad. Así, cada una de ellas ha dejado atrás sus construcciones, que cuentan su historia.
+
+Considera una civilización que comienza con el 100\% de sus edificios intactos. Con el paso de los años, las guerras y los períodos de prosperidad afectan a estos edificios. Durante las guerras, se destruye un cierto porcentaje de las edificios, mientras que en los tiempos de prosperidad, aumenta la cantidad de edificios construidos. Así, cada vez que ocurre uno de estos eventos, se considera el nacimiento de una nueva era de la civilización.
+
+Una asociación no gubernamental monitorea estos cambios anualmente y determina si una civilización aún se consideran ``viva'' en la era actual. Se considera que una civilización está ``viva'' si al menos un cierto porcentaje de sus edificios originales aún permanece en pie como parte del total de edificios en la era actual de la civilización.
+
+Dada una civilización, tu tarea es determinar si, durante la era actual $x$, la era $y$ aún se considera ``viva'' $(x \geq y \geq 0)$. Para que una era se considere viva, el porcentaje de edificios de la era $y$ durante la era actual $x$ debe ser mayor o igual que un porcentaje umbral $P$.
+
+% Command to input text section
+\inputText
+
+\begin{itemize}
+    \item El primer número es un entero $t$ $(1 \leq t \leq 100)$ indicando el número de casos de prueba.
+    \item Para cada caso de prueba hay un número entero $n$ $(1 \leq n \leq 500)$ indicando el número de eras que hubo en la vida de una civilizacion.
+    \item Luego se dan $n$ número enteros indicando el porcentaje de destrucción o crecimiento. Si el número es menor a 100, entonces se considera destrucción; si el número es mayor a 100, entonces es prosperidad.
+    \item Luego se dará un número entero $q$ $(1 \leq q \leq 500)$ indicando el número de consultas.
+    \item Cada consulta consta de 3 números enteros: la era $x$ $(0 \leq x \leq n)$, la era $y$ $(0 \leq y \leq x)$ y el porcentaje umbral $P$  $(1 \leq P \leq 100)$.
+\end{itemize}
+
+% Command to output text section
+\outputText
+
+Para cada consulta imprime en una nueva linea el carácter ``S'' o ``N'' dependiendo de si la civilización en la era $x$ sigue viva durante la era $y$, dado el porcentaje umbral $P$.
+
+% Command to examples section
+\exampleCases
+
+% Create a table with some examples of input and output cases
+% Parameters {Example case filepath}
+\begin{example}
+    \exmp{%%INPUT
+        \caseFile{2024/Civilizaciones/in/1.in}
+    }{%%OUTPUT
+        \caseFile{2024/Civilizaciones/out/1.out}
+    }%%END-OUTPUT
+\end{example}
+
+% % Command to explanation section, If you need to clarify anything from the example cases
