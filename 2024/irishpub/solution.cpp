@@ -1,74 +1,71 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-bool isvowel(char ch) { 
-	return ((ch == 'a') || (ch == 'e') ||(ch == 'i') ||(ch == 'o') || (ch == 'u') || (ch == 'y')); 
-}
+#define dbii(v) for (auto x: v) cout<<x.first<<" "<<x.second<<endl;
+#define db(v) for (auto x: v) cout<<x<<" "; cout<<endl;
 
-string to_lower(string line){
-	string cadena = "";
-	for(int i = 0; i < line.size(); i++){
-		cadena = cadena + (char)tolower(line[i]);
+vector<int> ss(const string & s){
+	int n = (int) s.size();
+	// k = 0;
+	vector<pair<int,int>> elem(n);
+	for (int i =0; i < n; i++){
+		elem[i] = {s[i] - 'a',i};
 	}
-	return cadena;
-}
-
-pair < string, string > format_string(string line){
-	vector < string > cadenas;
-	for(int i = 0; i < line.size(); i++){
-		string cadena = "";
-		while(i < line.size() && (line[i] != ' ')){
-			if(isvowel(line[i])){
-				i = i + 1;
-			} else {
-				cadena = cadena + line[i];
-				i = i + 1;
-			}
+	sort(elem.begin(), elem.end());
+	int maxk = ceil(log2(n));
+	vector<pair<int,int>> c(n, {0,elem[0].second});
+	for (int i = 1; i < n; i++){
+		c[i] = {(elem[i].first != elem[i-1].first ? c[i-1].first +1 : c[i-1].first),elem[i].second};
+	}
+	vector<int> co(n);
+	for (int i = 0; i< n; i++){
+		co[c[i].second] = c[i].first;
+	}
+	for (int k = 0; k < maxk; k++){
+		// join with k-1
+		vector<pair<pair<int,int>, int>> cc(n), cco(n);
+		
+		vector<int> count(n+1,0);
+		for (int i=  0; i < n; i++){
+			cc[i] = {{co[i], co[(i + (1<<k))%n]},i};
+			count[cc[i].first.second+1]++;
 		}
-		sort(cadena.begin(), cadena.end());
-		cadenas.push_back(cadena);
-	}
-	return (make_pair(cadenas[0], cadenas[1]));
+		for (int i = 1; i <= n; i++) count[i] += count[i-1];
+		//db(count);
+		for (int i = 0; i < n; i++){
+			cco[count[cc[i].first.second]++] = cc[i];
+		}
+		//for (auto x: cco) cout<<x.first.first<<" "<<x.first.second<<endl;
+		count.assign(n+1,0);
+		for (int i = 0; i < n; i++) count[cco[i].first.first +1]++;
+		for (int i = 1; i <= n; i++) count[i] += count[i-1];
+		for (int i = 0; i< n; i++) cc[count[cco[i].first.first]++] = cco[i];
+		//cout<<"====="<<endl;
+		//for (auto x: cc) cout<<x.first.first<<" "<<x.first.second<<endl;
+
+		//sort(cc.begin(), cc.end());
+		
+		//cout<<k<<endl;
+		//cout<<"======"<<endl;
+		c[0] = {0,elem[0].second};
+		for (int i = 1; i < n; i++){
+			c[i] = {cc[i].first != cc[i-1].first ? c[i-1].first +1 : c[i-1].first, cc[i].second};
+		}
+		for (int i = 0; i < n; i++){
+			co[c[i].second] = c[i].first;
+		}
+ 	}
+ 	vector<int> ans(n);
+ 	for (int i =0; i < n; i++) ans[i] = c[i].second;
+ 	return ans;
 }
 
-int main(){
-	srand(42);
-	//
-	vector < string > names;
-	vector < pair < string, string > > fnames;
-	map < string, vector < string > > Map;
-	//
-	string line;
-	while(getline(cin,line)){
-		if(line == "START"){
-			break;
-		}
-		string lline = to_lower(line);
-		pair < string, string > fline = format_string(lline);
-		names.push_back(lline);
-		fnames.push_back(fline);
-		//
-		string key = fline.first + " " + fline.second;
-		Map[key].push_back(lline);
-	}
+signed main(){
+	ios::sync_with_stdio(false);
+	string s; cin>>s;
+	s += "$";
+	db(ss(s));
+	//cout<<s<<endl;
 	
-	while(getline(cin,line)){
-		// split
-		pair < string, string > fline = format_string(line);
-		string cadena1 = fline.first;
-		string cadena2 = fline.second;
-		sort(cadena1.begin(),cadena1.end());
-		sort(cadena2.begin(),cadena2.end());
-		// get result
-		string key = cadena1 + " " + cadena2;
-		vector < string > match = Map[key];
-		cout << match[0];
-		int i = 1;
-		while(i < match.size()){
-			cout << "," << match[i];
-			i = i + 1;
-		}
-		cout << endl;
-	}
-	return 0;
 }
