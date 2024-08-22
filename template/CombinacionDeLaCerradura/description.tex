@@ -1,10 +1,7 @@
-% Command to problem header section
-% Parameters {Problem Name}{Entrada estándar}{Salida estándar}{Time Limit}{Memory Limit (default 64 megabytes)}{Author}{Hedaxecimal Color (defaul white)}
 \problemText{Combinacion De La Cerradura}{Entrada estándar}{Salida estándar}{2 segundos}{}{Kleiber Ttito}{FFFFFF}
 
 Scrooge McDuck guarda sus ahorros más preciados en una caja fuerte con una combinación de cerradura. Cada vez que quiere poner allí los tesoros que ha ganado de manera justa, tiene que abrir la cerradura.
 
-% Includes the figures, with the necessary information about your problem
 \begin{figure}[h]
     \centering
     \caption{Cerradura de Scrooge McDuck}
@@ -13,7 +10,6 @@ Scrooge McDuck guarda sus ahorros más preciados en una caja fuerte con una comb
 
 La combinación de la cerradura está representada por $n$ discos giratorios con dígitos del $0$ al $9$ escritos en ellos. Scrooge McDuck tiene que girar algunos discos para que la combinación de dígitos en los discos forme la combinación secreta. Entonces, en un solo movimiento, puede girar un disco un dígito hacia adelante o hacia atrás. En particular, en un movimiento puede pasar del dígito $0$ al dígito $9$ y viceversa. ¿Qué número mínimo de acciones necesita para eso?
 
-% Command to input text section
 \inputText
 
 La primera línea contiene un único número entero $n$ $(1 \le n \le 1000)$, el número de discos en la combinación de la cerradura.
@@ -22,16 +18,12 @@ La segunda línea contiene una cadena de $n$ dígitos, el estado original de los
 
 La tercera línea contiene una cadena de $n$ dígitos, la combinación de Scrooge McDuck que abre la cerradura.
 
-% Command to output text section
 \outputText
 
 Imprime un único número entero, el número mínimo de movimientos que Scrooge McDuck necesita para abrir la cerradura.
 
-% Command to examples section
 \exampleCases
 
-% Create a table with some examples of input and output cases
-% Parameters {Example case filepath}
 \begin{example}
     \exmp{%%INPUT
         \caseFile{template/CombinacionDeLaCerradura/in/1.in}
@@ -45,7 +37,6 @@ Imprime un único número entero, el número mínimo de movimientos que Scrooge 
     }%%END-OUTPUT
 \end{example}
 
-% Command to explanation section, If you need to clarify anything from the example cases
 \explanationText
 
 En el primer ejemplo se necesita 13 movimientos:

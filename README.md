@@ -32,6 +32,8 @@ This allows us to organize inputs and outputs in fewer files. Which also makes i
 
 ## How To Test My Problem?
 
+### Using Overleaf
+
 One way to test that your problem is written correctly is through Overleaf:
 
 1. Open the [cuscontest-repository project](https://www.overleaf.com/9544566223xxngyxghkmby#e048af) on Overleaf.
@@ -42,3 +44,10 @@ One way to test that your problem is written correctly is through Overleaf:
 ```
 4. Recompile the project and validate that everything is working!
 
+### Using Github Action
+
+A latex build validator is integrated into github actions.
+
+1. Go to the repository `Action` tab
+2. Find the name of the last commit uploaded in your pull request
+3. Open the execution instance to see the logs and the generated PDF
